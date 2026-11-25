@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%235b7cfa'/%3E%3Ctext x='50' y='72' font-size='58' font-family='Arial,Helvetica,sans-serif' font-weight='bold' text-anchor='middle' fill='%23ffffff'%3EA%3C/text%3E%3C/svg%3E">
+<title>每天20词 · 六年级英语单词训练营</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+ background:linear-gradient(165deg,#eef4ff 0%,#f6f3ff 45%,#fff5f0 100%);
+ background-attachment:fixed;color:#1e2a47;min-height:100vh;font-size:16px;line-height:1.6;
+}
+.wrap{max-width:820px;margin:0 auto;padding:14px 14px 96px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 10px}
+.brand{font-size:19px;font-weight:800;letter-spacing:.5px;color:#3b4a6b}
+.brand span{background:linear-gradient(90deg,#5b7cfa,#9a6cf7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.topinfo{font-size:13px;color:#7d89a6;text-align:right;line-height:1.35}
+.card{background:#fff;border-radius:20px;padding:18px;box-shadow:0 10px 26px rgba(74,95,160,.10);margin-bottom:14px}
+.card.tight{padding:14px}
+.hero{background:linear-gradient(135deg,#5b7cfa,#8f6cf6 70%,#a77cf4);color:#fff;border-radius:22px;padding:20px;box-shadow:0 12px 26px rgba(91,124,250,.28);margin-bottom:16px}
+.hero h1{margin:0 0 4px;font-size:20px;font-weight:800}
+.hero .sub{font-size:13px;opacity:.9}
+.hero .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:6px 13px;font-size:13px}
+.hero .big{font-size:26px;font-weight:800;display:block;line-height:1.2}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.mini{background:#fff;border-radius:16px;padding:12px 10px;text-align:center;box-shadow:0 6px 18px rgba(74,95,160,.08)}
+.mini b{display:block;font-size:22px;color:#4f6bea}
+.mini span{font-size:12px;color:#7d89a6}
+.mini.done b{color:#2fb87a}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;cursor:pointer;
+ border-radius:999px;padding:13px 20px;font-size:16px;font-weight:700;color:#fff;
+ background:linear-gradient(135deg,#5b7cfa,#8f6cf6);box-shadow:0 8px 18px rgba(91,124,250,.28);
+ transition:transform .12s ease,box-shadow .12s ease;font-family:inherit}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn.wide{width:100%}
+.btn.ghost{background:#fff;color:#4a5b8c;box-shadow:0 4px 14px rgba(74,95,160,.10);border:1px solid #e2e8f7}
+.btn.good{background:linear-gradient(135deg,#39c07f,#2ea86e);box-shadow:0 8px 18px rgba(57,192,127,.28)}
+.btn.bad{background:linear-gradient(135deg,#ff9a6b,#f9735f);box-shadow:0 8px 18px rgba(249,115,95,.26)}
+.btn.sm{padding:9px 15px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.actions{display:flex;gap:10px;margin-top:14px}
+.actions .btn{flex:1}
+.tagrow{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.tag{background:#eef2ff;color:#4f6bea;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:700}
+.tag.rev{background:#fff0e6;color:#e07a3a}
+.tag.quiz{background:#eaf9f1;color:#28a06b}
+.topic{font-size:12px;color:#9aa5be}
+.wordline{display:flex;align-items:center;gap:12px;justify-content:center;margin:10px 0 2px;flex-wrap:wrap}
+.word{font-size:38px;font-weight:800;letter-spacing:.5px;color:#243255;word-break:break-word;text-align:center}
+.spk{border:none;background:#eef2ff;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer}
+.spk:active{transform:scale(.95)}
+.phon{text-align:center;color:#8892ab;font-size:15px;margin-bottom:6px}
+.reveal{margin-top:14px;border-top:1px dashed #e4e9f5;padding-top:14px;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.cn{font-size:22px;font-weight:700;color:#2f9a68;text-align:center}
+.pos{text-align:center;font-size:13px;color:#9aa5be;margin-top:2px}
+.ex{margin-top:12px;font-size:16px;color:#35405c;background:#f7f9ff;border-radius:14px;padding:12px;border-left:4px solid #c7d4fb}
+.ex em{color:#4f6bea;font-style:normal;font-weight:700}
+.excn{font-size:14px;color:#8792ac;margin-top:6px}
+.hint{color:#9aa5be;font-size:13px;text-align:center;margin-top:6px}
+.bar{height:8px;background:#eef1f9;border-radius:999px;overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#5b7cfa,#9a6cf7);transition:width .3s}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #e4e9f5;border-radius:14px;
+ padding:13px 16px;margin-bottom:10px;font-size:16px;cursor:pointer;font-family:inherit;color:#28324d;transition:.15s}
+.opt:hover{border-color:#c7d4fb;background:#fafbff}
+.opt.ok{border-color:#39c07f;background:#eafaf2;color:#1f7a51;font-weight:700}
+.opt.no{border-color:#f9735f;background:#fff0ed;color:#c0392b}
+.opt:disabled{cursor:default}
+.option-en{font-weight:700}
+.qtitle{font-size:14px;color:#7d89a6;margin-bottom:12px}
+.qmain{font-size:26px;font-weight:800;text-align:center;margin:8px 0 4px;color:#243255}
+input.spell{width:100%;padding:14px 16px;font-size:20px;border:1.5px solid #e4e9f5;border-radius:14px;
+ font-family:inherit;outline:none;text-align:center;letter-spacing:1px;background:#fff}
+input.spell:focus{border-color:#5b7cfa;box-shadow:0 0 0 3px rgba(91,124,250,.12)}
+textarea.spellarea{width:100%;min-height:86px;padding:13px 15px;font-size:17px;line-height:1.5;border:1.5px solid #e4e9f5;border-radius:14px;font-family:inherit;outline:none;resize:vertical;background:#fff}
+textarea.spellarea:focus{border-color:#5b7cfa;box-shadow:0 0 0 3px rgba(91,124,250,.12)}
+.fb{margin-top:12px;border-radius:14px;padding:12px 14px;font-size:15px}
+.fb.ok{background:#eafaf2;color:#1f7a51}
+.fb.no{background:#fff1ee;color:#c0392b}
+.wronglist{margin-top:6px}
+.wrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #f1f4fb}
+.wrow:last-child{border-bottom:none}
+.wleft b{font-size:17px;color:#243255}
+.wleft span{display:block;font-size:13px;color:#8792ac}
+.empty{text-align:center;color:#9aa5be;padding:26px 10px;font-size:15px}
+.warn{background:#fff6e5;color:#a06000;border:1px solid #ffe2b0;border-radius:16px;padding:12px 14px;font-size:14px;line-height:1.55;margin-bottom:14px}
+@media (max-width:660px){ .kb{display:none!important} .word{font-size:32px} .cn{font-size:20px} }
+.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
+.stat{background:#fff;border-radius:16px;padding:14px;box-shadow:0 6px 18px rgba(74,95,160,.08)}
+.stat b{font-size:24px;color:#4f6bea;display:block}
+.stat span{font-size:12px;color:#7d89a6}
+.heat{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:10px}
+.hcell{aspect-ratio:1;border-radius:8px;background:#eef1f9;display:flex;align-items:center;justify-content:center;font-size:10px;color:#9aa5be}
+.hcell.l1{background:#d5e0ff;color:#4a5b8c}
+.hcell.l2{background:#a9c0fd;color:#334}
+.hcell.l3{background:#7b98fa;color:#fff}
+.hcell.today{outline:2px solid #f5a623;outline-offset:1px}
+.packlist .pk{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #f1f4fb;font-size:14px}
+.packlist .pk:last-child{border-bottom:none}
+.pk .nm{flex:0 0 130px;color:#334;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pk .pb{flex:1;height:7px;background:#eef1f9;border-radius:999px;overflow:hidden}
+.pk .pb i{display:block;height:100%;background:linear-gradient(90deg,#5b7cfa,#9a6cf7)}
+.pk .n{flex:0 0 54px;text-align:right;color:#8892ab;font-size:13px}
+.srow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #f1f4fb}
+.srow:last-child{border-bottom:none}
+.srow .lb{font-size:15px;color:#334;font-weight:600}
+.srow .ds{font-size:12px;color:#9aa5be;font-weight:400;display:block}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{border:1.5px solid #e4e9f5;background:#fff;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;font-family:inherit;color:#4a5b8c}
+.seg button.on{background:#eef2ff;border-color:#b9c8fb;color:#3f57c9;font-weight:700}
+.switch{width:52px;height:30px;border-radius:999px;background:#dde3f1;border:none;position:relative;cursor:pointer;transition:.2s}
+.switch.on{background:#39c07f}
+.switch i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.switch.on i{left:25px}
+.nav{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+ border-top:1px solid #e9edf7;display:flex;justify-content:space-around;padding:8px 6px 10px;z-index:50}
+.nav a{flex:1;text-align:center;font-size:12px;color:#8b96b0;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:2px}
+.nav a .ic{font-size:20px;line-height:1}
+.nav a.on{color:#4f6bea;font-weight:800}
+.toast{position:fixed;left:50%;top:18px;transform:translateX(-50%);background:#28324d;color:#fff;
+ padding:10px 18px;border-radius:999px;font-size:14px;z-index:99;opacity:0;transition:.25s;pointer-events:none}
+.toast.show{opacity:1}
+.footnote{text-align:center;color:#a7b1c6;font-size:12px;padding:12px 0 4px}
+.bigresult{text-align:center;padding:8px 0 4px}
+.bigresult .num{font-size:44px;font-weight:800;background:linear-gradient(90deg,#5b7cfa,#9a6cf7);-webkit-background-clip:text;background-clip:text;color:transparent}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">📚 <span>每天20词</span></div>
+    <div class="topinfo" id="topinfo"></div>
+  </div>
+  <div id="main"></div>
+  <div class="footnote">数据保存在本机，换电脑可用「导出进度」带走</div>
+</div>
+<div class="nav" id="nav"></div>
+<div class="toast" id="toast"></div>
+<script>
+var WORDS = [["pen","/pen/","n.","钢笔","This is my pen.","这是我的钢笔。"],["pencil","/ˈpensl/","n.","铅笔","I have a new pencil.","我有一支新铅笔。"],["pencil-case","/ˈpensl keɪs/","n.","铅笔盒","My pencil-case is blue.","我的铅笔盒是蓝色的。"],["ruler","/ˈruːlə/","n.","尺子","Can I use your ruler?","我可以用你的尺子吗？"],["eraser","/ɪˈreɪzə/","n.","橡皮","Where is my eraser?","我的橡皮在哪里？"],["crayon","/ˈkreɪən/","n.","蜡笔","She draws with crayons.","她用蜡笔画画。"],["bag","/bæɡ/","n.","包；袋子","The bag is on the desk.","包在桌子上。"],["book","/bʊk/","n.","书","I read a book every night.","我每晚读一本书。"],["schoolbag","/ˈskuːlbæɡ/","n.","书包","My schoolbag is very heavy.","我的书包很重。"],["notebook","/ˈnəʊtbʊk/","n.","笔记本","Write it in your notebook.","把它写在你的笔记本上。"],["desk","/desk/","n.","书桌","The cat is under the desk.","猫在书桌下面。"],["chair","/tʃeə/","n.","椅子","Please sit on the chair.","请坐在椅子上。"],["door","/dɔː/","n.","门","Close the door, please.","请关门。"],["window","/ˈwɪndəʊ/","n.","窗户","Open the window.","打开窗户。"],["blackboard","/ˈblækbɔːd/","n.","黑板","Look at the blackboard.","看黑板。"],["light","/laɪt/","n.","灯","Turn on the light.","开灯。"],["picture","/ˈpɪktʃə/","n.","图片；照片","There is a picture on the wall.","墙上有一幅画。"],["classroom","/ˈklɑːsruːm/","n.","教室","Our classroom is clean.","我们的教室很干净。"],["computer","/kəmˈpjuːtə/","n.","电脑","I use a computer at home.","我在家使用电脑。"],["map","/mæp/","n.","地图","This is a map of China.","这是一张中国地图。"],["red","/red/","adj.","红色的","Her coat is red.","她的外套是红色的。"],["blue","/bluː/","adj.","蓝色的","The sky is blue.","天空是蓝色的。"],["green","/ɡriːn/","adj.","绿色的","I like green apples.","我喜欢青苹果。"],["yellow","/ˈjeləʊ/","adj.","黄色的","The banana is yellow.","香蕉是黄色的。"],["black","/blæk/","adj.","黑色的","He has a black dog.","他有一条黑狗。"],["white","/waɪt/","adj.","白色的","Snow is white.","雪是白色的。"],["orange","/ˈɒrɪndʒ/","adj./n.","橙色的；橙子","I want an orange, please.","请给我一个橙子。"],["brown","/braʊn/","adj.","棕色的","The bear is brown.","这只熊是棕色的。"],["pink","/pɪŋk/","adj.","粉色的","She likes pink dresses.","她喜欢粉色连衣裙。"],["purple","/ˈpɜːpl/","adj.","紫色的","My pen is purple.","我的钢笔是紫色的。"],["grey","/ɡreɪ/","adj.","灰色的","The sky looks grey today.","今天天空看起来是灰的。"],["colour","/ˈkʌlə/","n.","颜色","What colour is your bag?","你的包是什么颜色？"],["shape","/ʃeɪp/","n.","形状","What shape is it?","它是什么形状？"],["circle","/ˈsɜːkl/","n.","圆形","Draw a circle here.","在这里画一个圆。"],["square","/skweə/","n.","正方形","The box is a square.","这个盒子是正方形。"],["star","/stɑː/","n.","星星；星形","I can see many stars.","我能看见许多星星。"],["heart","/hɑːt/","n.","心；心形","She drew a red heart.","她画了一个红色的心。"],["round","/raʊnd/","adj.","圆的","The moon is round tonight.","今晚月亮是圆的。"],["triangle","/ˈtraɪæŋɡl/","n.","三角形","This is a triangle.","这是一个三角形。"],["rectangle","/ˈrektæŋɡl/","n.","长方形","The door is a rectangle.","这扇门是长方形。"],["head","/hed/","n.","头","Touch your head.","摸摸你的头。"],["face","/feɪs/","n.","脸","Wash your face.","洗脸。"],["eye","/aɪ/","n.","眼睛","She has big eyes.","她有一双大眼睛。"],["ear","/ɪə/","n.","耳朵","My ear hurts.","我的耳朵疼。"],["nose","/nəʊz/","n.","鼻子","The dog has a good nose.","狗有灵敏的鼻子。"],["mouth","/maʊθ/","n.","嘴","Open your mouth.","张开嘴。"],["hair","/heə/","n.","头发","Her hair is long.","她的头发很长。"],["neck","/nek/","n.","脖子","My neck is a little sore.","我的脖子有点酸。"],["arm","/ɑːm/","n.","手臂","He hurt his arm.","他伤了手臂。"],["hand","/hænd/","n.","手","Wash your hands before dinner.","饭前洗手。"],["finger","/ˈfɪŋɡə/","n.","手指","I cut my finger.","我切到手指了。"],["leg","/leɡ/","n.","腿","My legs are tired.","我的腿累了。"],["foot","/fʊt/","n.","脚","My left foot hurts.","我的左脚疼。"],["body","/ˈbɒdi/","n.","身体","Exercise is good for your body.","锻炼对身体有好处。"],["tooth","/tuːθ/","n.","牙齿（单数）","Brush your teeth twice a day.","每天刷两次牙。"],["shoulder","/ˈʃəʊldə/","n.","肩膀","My shoulder is painful.","我的肩膀疼。"],["knee","/niː/","n.","膝盖","He fell and hurt his knee.","他摔倒伤了膝盖。"],["back","/bæk/","n.","背部","My back hurts after running.","跑步后我背部疼。"],["stomach","/ˈstʌmək/","n.","胃；肚子","My stomach aches.","我胃疼。"],["toe","/təʊ/","n.","脚趾","My toe hurts a lot.","我的脚趾很疼。"],["duck","/dʌk/","n.","鸭子","The duck is swimming.","鸭子在游泳。"],["pig","/pɪɡ/","n.","猪","The pig is very fat.","那头猪很肥。"],["cat","/kæt/","n.","猫","My cat likes fish.","我的猫喜欢吃鱼。"],["dog","/dɒɡ/","n.","狗","The dog is running fast.","狗跑得很快。"],["chicken","/ˈtʃɪkɪn/","n.","鸡；鸡肉","We have chicken for dinner.","我们晚饭吃鸡肉。"],["hen","/hen/","n.","母鸡","The hen has ten eggs.","母鸡孵了十个蛋。"],["cow","/kaʊ/","n.","奶牛","Cows give us milk.","奶牛给我们牛奶。"],["horse","/hɔːs/","n.","马","He can ride a horse.","他会骑马。"],["sheep","/ʃiːp/","n.","绵羊","There are many sheep on the hill.","山丘上有很多绵羊。"],["goat","/ɡəʊt/","n.","山羊","The goat is eating grass.","山羊在吃草。"],["rabbit","/ˈræbɪt/","n.","兔子","The rabbit has long ears.","兔子有长耳朵。"],["mouse","/maʊs/","n.","老鼠","The cat caught a mouse.","猫抓住了一只老鼠。"],["bird","/bɜːd/","n.","鸟","A bird is singing.","一只鸟在唱歌。"],["fish","/fɪʃ/","n./v.","鱼；钓鱼","I like fish very much.","我很喜欢鱼。"],["frog","/frɒɡ/","n.","青蛙","The frog can jump high.","青蛙能跳得很高。"],["snake","/sneɪk/","n.","蛇","I am afraid of snakes.","我怕蛇。"],["fox","/fɒks/","n.","狐狸","The fox is very clever.","狐狸非常聪明。"],["wolf","/wʊlf/","n.","狼","Wolves live in the forest.","狼生活在森林里。"],["deer","/dɪə/","n.","鹿","A deer ran across the road.","一只鹿跑过了马路。"],["panda","/ˈpændə/","n.","熊猫","Pandas eat bamboo.","熊猫吃竹子。"],["tiger","/ˈtaɪɡə/","n.","老虎","The tiger is a strong animal.","老虎是强壮的动物。"],["lion","/ˈlaɪən/","n.","狮子","The lion is the king of animals.","狮子是动物之王。"],["monkey","/ˈmʌŋki/","n.","猴子","Monkeys like bananas.","猴子喜欢香蕉。"],["elephant","/ˈelɪfənt/","n.","大象","An elephant has a long nose.","大象有长鼻子。"],["giraffe","/dʒɪˈrɑːf/","n.","长颈鹿","The giraffe is very tall.","长颈鹿很高。"],["zebra","/ˈzebrə/","n.","斑马","The zebra is black and white.","斑马是黑白相间的。"],["bear","/beə/","n.","熊","The bear sleeps in winter.","冬天熊会睡觉。"],["kangaroo","/ˌkæŋɡəˈruː/","n.","袋鼠","Kangaroos live in Australia.","袋鼠生活在澳大利亚。"],["camel","/ˈkæml/","n.","骆驼","Camels can live without water for long.","骆驼可以很久不喝水。"],["whale","/weɪl/","n.","鲸","The whale is the biggest animal.","鲸是最大的动物。"],["dolphin","/ˈdɒlfɪn/","n.","海豚","Dolphins are very smart.","海豚非常聪明。"],["turtle","/ˈtɜːtl/","n.","乌龟","The turtle moves slowly.","乌龟爬得很慢。"],["butterfly","/ˈbʌtəflaɪ/","n.","蝴蝶","A butterfly is on the flower.","一只蝴蝶在花上。"],["bee","/biː/","n.","蜜蜂","Bees make honey.","蜜蜂酿蜂蜜。"],["ant","/ænt/","n.","蚂蚁","Ants are very small.","蚂蚁很小。"],["spider","/ˈspaɪdə/","n.","蜘蛛","A spider has eight legs.","蜘蛛有八条腿。"],["insect","/ˈɪnsekt/","n.","昆虫","Butterflies are insects.","蝴蝶是昆虫。"],["animal","/ˈænɪml/","n.","动物","I love animals very much.","我非常喜欢动物。"],["tail","/teɪl/","n.","尾巴","The dog has a short tail.","这条狗尾巴很短。"],["wing","/wɪŋ/","n.","翅膀","The bird has two wings.","鸟有两只翅膀。"],["bread","/bred/","n.","面包","I eat bread for breakfast.","我早饭吃面包。"],["cake","/keɪk/","n.","蛋糕","Mum made a birthday cake.","妈妈做了一个生日蛋糕。"],["egg","/eɡ/","n.","蛋","I have an egg every morning.","我每天早上吃一个鸡蛋。"],["milk","/mɪlk/","n.","牛奶","Drink a glass of milk.","喝一杯牛奶。"],["water","/ˈwɔːtə/","n.","水","Please give me some water.","请给我一些水。"],["juice","/dʒuːs/","n.","果汁","I like orange juice.","我喜欢橙汁。"],["rice","/raɪs/","n.","米饭","We eat rice every day.","我们每天吃米饭。"],["noodles","/ˈnuːdlz/","n.","面条","These noodles are delicious.","这些面条很好吃。"],["soup","/suːp/","n.","汤","The soup is hot.","汤很烫。"],["meat","/miːt/","n.","肉","He doesn't eat much meat.","他肉吃得不多。"],["beef","/biːf/","n.","牛肉","I'd like some beef.","我想要一些牛肉。"],["pork","/pɔːk/","n.","猪肉","Pork is a little expensive.","猪肉有点贵。"],["salad","/ˈsæləd/","n.","沙拉","A salad is healthy.","沙拉很健康。"],["sandwich","/ˈsænwɪtʃ/","n.","三明治","I made a sandwich for lunch.","我午饭做了个三明治。"],["hamburger","/ˈhæmbɜːɡə/","n.","汉堡包","Don't eat too many hamburgers.","不要吃太多汉堡包。"],["pizza","/ˈpiːtsə/","n.","披萨","We share a pizza.","我们分吃一个披萨。"],["candy","/ˈkændi/","n.","糖果","Too much candy is bad for teeth.","糖吃太多对牙不好。"],["ice cream","/ˌaɪs ˈkriːm/","n.","冰淇淋","I want an ice cream.","我想要一个冰淇淋。"],["tea","/tiː/","n.","茶","My father likes green tea.","我爸爸喜欢绿茶。"],["coffee","/ˈkɒfi/","n.","咖啡","Coffee is not good for kids.","咖啡对孩子不好。"],["apple","/ˈæpl/","n.","苹果","An apple a day keeps the doctor away.","一天一个苹果，医生远离我。"],["banana","/bəˈnɑːnə/","n.","香蕉","Monkeys love bananas.","猴子爱香蕉。"],["pear","/peə/","n.","梨","This pear is very sweet.","这个梨很甜。"],["peach","/piːtʃ/","n.","桃","Peaches are in season now.","桃子现在正当季。"],["grape","/ɡreɪp/","n.","葡萄","These grapes are sour.","这些葡萄很酸。"],["watermelon","/ˈwɔːtəmelən/","n.","西瓜","Watermelon is cool in summer.","夏天西瓜很清凉。"],["strawberry","/ˈstrɔːbəri/","n.","草莓","She picked some strawberries.","她摘了一些草莓。"],["mango","/ˈmæŋɡəʊ/","n.","芒果","I like mango juice.","我喜欢芒果汁。"],["lemon","/ˈlemən/","n.","柠檬","The lemon is very sour.","柠檬很酸。"],["cherry","/ˈtʃeri/","n.","樱桃","Cherries are red and small.","樱桃是红色的小果子。"],["pineapple","/ˈpaɪnæpl/","n.","菠萝","Pineapple grows in the south.","菠萝长在南方。"],["tomato","/təˈmɑːtəʊ/","n.","西红柿","I eat a tomato every day.","我每天吃一个西红柿。"],["potato","/pəˈteɪtəʊ/","n.","土豆","Potatoes are easy to cook.","土豆很容易做。"],["carrot","/ˈkærət/","n.","胡萝卜","Carrots are good for eyes.","胡萝卜对眼睛好。"],["onion","/ˈʌnjən/","n.","洋葱","The onion makes me cry.","洋葱让我流泪。"],["cabbage","/ˈkæbɪdʒ/","n.","卷心菜","We planted cabbages in the garden.","我们在花园里种了卷心菜。"],["bean","/biːn/","n.","豆；豆荚","Green beans are my favourite.","青豆是我最喜欢的。"],["vegetable","/ˈvedʒtəbl/","n.","蔬菜","Eat more vegetables, please.","请多吃蔬菜。"],["fruit","/fruːt/","n.","水果","Fruit is good for your health.","水果对健康有益。"],["corn","/kɔːn/","n.","玉米","The corn is sweet.","这玉米很甜。"],["eleven","/ɪˈlevn/","num.","十一","There are eleven boys here.","这里有十一个男孩。"],["twelve","/twelv/","num.","十二","A year has twelve months.","一年有十二个月。"],["thirteen","/ˌθɜːˈtiːn/","num.","十三","Thirteen is an unlucky number for some.","十三对某些人是不吉利的数字。"],["fifteen","/ˌfɪfˈtiːn/","num.","十五","I get up at six fifteen.","我六点十五起床。"],["twenty","/ˈtwenti/","num.","二十","Twenty students are in the room.","房间里有二十个学生。"],["thirty","/ˈθɜːti/","num.","三十","The meeting is at six thirty.","会议六点半开始。"],["forty","/ˈfɔːti/","num.","四十","My father is forty years old.","我爸爸四十岁。"],["fifty","/ˈfɪfti/","num.","五十","Fifty minutes is a long time.","五十分钟是很长的时间。"],["hundred","/ˈhʌndrəd/","num.","百","There are a hundred people.","有一百个人。"],["thousand","/ˈθaʊznd/","num.","千","The book has a thousand words.","这本书有一千个单词。"],["first","/fɜːst/","num./adj.","第一；首先","He is the first in our class.","他在我们班是第一名。"],["second","/ˈsekənd/","num./n.","第二；秒","Wait a second, please.","请等一下。"],["third","/θɜːd/","num.","第三","March is the third month.","三月是第三个月。"],["time","/taɪm/","n.","时间；次","What time is it now?","现在几点？"],["hour","/ˈaʊə/","n.","小时","I read for an hour.","我读了一小时书。"],["minute","/ˈmɪnɪt/","n.","分钟","It takes five minutes.","这要五分钟。"],["clock","/klɒk/","n.","时钟","The clock is on the wall.","钟在墙上。"],["o'clock","/əˈklɒk/","adv.","……点钟","It's seven o'clock.","现在七点。"],["half","/hɑːf/","n./adj.","一半","Half an hour is enough.","半小时足够了。"],["quarter","/ˈkwɔːtə/","n.","四分之一；一刻钟","It's a quarter past six.","现在六点一刻。"],["family","/ˈfæməli/","n.","家庭；家人","My family has five people.","我家有五口人。"],["father","/ˈfɑːðə/","n.","父亲","My father is a driver.","我爸爸是司机。"],["mother","/ˈmʌðə/","n.","母亲","My mother works in a hospital.","我妈妈在医院工作。"],["dad","/dæd/","n.","爸爸（口语）","Dad, can you help me?","爸爸，你能帮我吗？"],["mum","/mʌm/","n.","妈妈（口语）","Mum is cooking dinner.","妈妈在做饭。"],["parents","/ˈpeərənts/","n.","父母","My parents love me.","我父母爱我。"],["brother","/ˈbrʌðə/","n.","兄弟","My brother is two years older.","我哥哥比我大两岁。"],["sister","/ˈsɪstə/","n.","姐妹","She is my little sister.","她是我妹妹。"],["grandfather","/ˈɡrænfɑːðə/","n.","祖父；外祖父","My grandfather is seventy.","我爷爷七十岁。"],["grandmother","/ˈɡrænmʌðə/","n.","祖母；外祖母","My grandmother likes tea.","我奶奶喜欢喝茶。"],["grandpa","/ˈɡrænpɑː/","n.","爷爷（口语）","Grandpa tells good stories.","爷爷会讲好听的故事。"],["grandma","/ˈɡrænmɑː/","n.","奶奶（口语）","Grandma lives with us.","奶奶和我们住在一起。"],["uncle","/ˈʌŋkl/","n.","叔叔；舅舅","My uncle works in Beijing.","我叔叔在北京工作。"],["aunt","/ɑːnt/","n.","阿姨；姑姑","My aunt is very kind.","我姑姑很和善。"],["cousin","/ˈkʌzn/","n.","堂（表）兄弟姐妹","My cousin is my best friend.","我表姐是我最好的朋友。"],["baby","/ˈbeɪbi/","n.","婴儿","The baby is sleeping.","宝宝在睡觉。"],["son","/sʌn/","n.","儿子","He is my son.","他是我儿子。"],["daughter","/ˈdɔːtə/","n.","女儿","My daughter is a student.","我女儿是学生。"],["friend","/frend/","n.","朋友","She is my good friend.","她是我的好朋友。"],["neighbour","/ˈneɪbə/","n.","邻居","Our neighbour has a big dog.","我们的邻居有一条大狗。"],["bedroom","/ˈbedruːm/","n.","卧室","My bedroom is small but clean.","我的卧室小而干净。"],["living room","/ˈlɪvɪŋ ruːm/","n.","客厅","We watch TV in the living room.","我们在客厅看电视。"],["study","/ˈstʌdi/","n./v.","书房；学习","I do my homework in the study.","我在书房做作业。"],["kitchen","/ˈkɪtʃɪn/","n.","厨房","Mum is in the kitchen.","妈妈在厨房。"],["bathroom","/ˈbɑːθruːm/","n.","卫生间","The bathroom is upstairs.","卫生间在楼上。"],["bed","/bed/","n.","床","I go to bed at nine.","我九点上床睡觉。"],["sofa","/ˈsəʊfə/","n.","沙发","The cat sleeps on the sofa.","猫睡在沙发上。"],["table","/ˈteɪbl/","n.","桌子","Put the plate on the table.","把盘子放在桌上。"],["fridge","/frɪdʒ/","n.","冰箱","There is milk in the fridge.","冰箱里有牛奶。"],["phone","/fəʊn/","n.","电话；手机","Don't play with your phone too much.","不要玩太多手机。"],["wall","/wɔːl/","n.","墙","There are photos on the wall.","墙上有照片。"],["floor","/flɔː/","n.","地板；楼层","The floor is clean.","地板很干净。"],["garden","/ˈɡɑːdn/","n.","花园","We grow flowers in the garden.","我们在花园里种花。"],["house","/haʊs/","n.","房子","They live in a big house.","他们住在一所大房子里。"],["home","/həʊm/","n.","家","I get home at five.","我五点回家。"],["room","/ruːm/","n.","房间","My room is on the second floor.","我的房间在二楼。"],["key","/kiː/","n.","钥匙","I lost my key.","我丢了钥匙。"],["lamp","/læmp/","n.","台灯","Turn on the lamp, please.","请打开台灯。"],["TV","/tiː ˈviː/","n.","电视","I watch TV after dinner.","我晚饭后看电视。"],["glass","/ɡlɑːs/","n.","玻璃杯；眼镜（复数）","A glass of water, please.","请给我一杯水。"],["clothes","/kləʊðz/","n.","衣服","Put on warm clothes.","穿上暖和的衣服。"],["coat","/kəʊt/","n.","外套","My coat is too small.","我的外套太小了。"],["jacket","/ˈdʒækɪt/","n.","夹克","He wears a blue jacket.","他穿一件蓝夹克。"],["shirt","/ʃɜːt/","n.","衬衫","This shirt is white.","这件衬衫是白色的。"],["T-shirt","/ˈtiː ʃɜːt/","n.","T恤衫","I like this T-shirt.","我喜欢这件T恤。"],["sweater","/ˈswetə/","n.","毛衣","She is wearing a red sweater.","她穿着红毛衣。"],["dress","/dres/","n.","连衣裙","Her dress is beautiful.","她的连衣裙很漂亮。"],["skirt","/skɜːt/","n.","短裙","The skirt is too long.","这条裙子太长。"],["shorts","/ʃɔːts/","n.","短裤","He wears shorts in summer.","夏天他穿短裤。"],["trousers","/ˈtraʊzəz/","n.","长裤","These trousers are new.","这条长裤是新的。"],["jeans","/dʒiːnz/","n.","牛仔裤","Jeans are popular.","牛仔裤很流行。"],["sock","/sɒk/","n.","短袜","Where is my other sock?","我另一只袜子在哪里？"],["shoe","/ʃuː/","n.","鞋","These shoes are too big.","这双鞋太大。"],["glasses","/ˈɡlɑːsɪz/","n.","眼镜","He wears glasses.","他戴眼镜。"],["hat","/hæt/","n.","帽子（有檐）","Put on your hat.","戴上你的帽子。"],["cap","/kæp/","n.","鸭舌帽","My cap is on the bed.","我的帽子在床上。"],["scarf","/skɑːf/","n.","围巾","A scarf keeps me warm.","围巾让我暖和。"],["glove","/ɡlʌv/","n.","手套","I need a pair of gloves.","我需要一副手套。"],["umbrella","/ʌmˈbrelə/","n.","雨伞","Take an umbrella with you.","带把伞。"],["uniform","/ˈjuːnɪfɔːm/","n.","校服；制服","We wear school uniforms.","我们穿校服。"],["weather","/ˈweðə/","n.","天气","What's the weather like today?","今天天气怎么样？"],["sunny","/ˈsʌni/","adj.","晴朗的","It's sunny today.","今天是晴天。"],["cloudy","/ˈklaʊdi/","adj.","多云的","It's cloudy this morning.","今天早上多云。"],["rainy","/ˈreɪni/","adj.","下雨的","It's rainy in June here.","这里六月多雨。"],["windy","/ˈwɪndi/","adj.","有风的","It's windy outside.","外面有风。"],["snowy","/ˈsnəʊi/","adj.","下雪的","It's snowy in winter.","冬天会下雪。"],["hot","/hɒt/","adj.","热的","It's very hot in summer.","夏天很热。"],["cold","/kəʊld/","adj.","冷的","I feel cold.","我觉得冷。"],["warm","/wɑːm/","adj.","暖和的","Spring is warm.","春天很暖和。"],["cool","/kuːl/","adj.","凉爽的；酷的","Autumn is cool.","秋天很凉爽。"],["spring","/sprɪŋ/","n.","春天","Spring is my favourite season.","春天是我最喜欢的季节。"],["summer","/ˈsʌmə/","n.","夏天","We swim in summer.","夏天我们游泳。"],["autumn","/ˈɔːtəm/","n.","秋天","Autumn is a harvest season.","秋天是收获的季节。"],["winter","/ˈwɪntə/","n.","冬天","It snows in winter.","冬天会下雪。"],["season","/ˈsiːzn/","n.","季节","There are four seasons in a year.","一年有四个季节。"],["rain","/reɪn/","n./v.","雨；下雨","It may rain tomorrow.","明天可能下雨。"],["snow","/snəʊ/","n./v.","雪；下雪","The snow is white and soft.","雪又白又软。"],["wind","/wɪnd/","n.","风","The wind is strong today.","今天风很大。"],["cloud","/klaʊd/","n.","云","There are no clouds in the sky.","天上没有云。"],["degree","/dɪˈɡriː/","n.","度；度数","It's thirty degrees today.","今天三十度。"],["school","/skuːl/","n.","学校","Our school is very big.","我们学校很大。"],["library","/ˈlaɪbrəri/","n.","图书馆","I read books in the library.","我在图书馆看书。"],["playground","/ˈpleɪɡraʊnd/","n.","操场","We play on the playground.","我们在操场上玩。"],["gym","/dʒɪm/","n.","体育馆","We have PE class in the gym.","我们在体育馆上体育课。"],["office","/ˈɒfɪs/","n.","办公室","The teachers' office is upstairs.","老师办公室在楼上。"],["art room","/ˈɑːt ruːm/","n.","美术教室","We draw in the art room.","我们在美术教室画画。"],["music room","/ˈmjuːzɪk ruːm/","n.","音乐教室","She sings in the music room.","她在音乐教室唱歌。"],["computer room","/kəmˈpjuːtə ruːm/","n.","电脑教室","We study in the computer room.","我们在电脑教室学习。"],["museum","/mjuˈziːəm/","n.","博物馆","We visited a museum last week.","上周我们参观了博物馆。"],["post office","/ˈpəʊst ɒfɪs/","n.","邮局","The post office is near my home.","邮局在我家附近。"],["hospital","/ˈhɒspɪtl/","n.","医院","My mother works in a hospital.","我妈妈在医院工作。"],["cinema","/ˈsɪnəmə/","n.","电影院","Let's go to the cinema.","我们去电影院吧。"],["bookstore","/ˈbʊkstɔː/","n.","书店","I bought a book in the bookstore.","我在书店买了一本书。"],["supermarket","/ˈsuːpəmɑːkɪt/","n.","超市","We buy food in the supermarket.","我们在超市买食物。"],["park","/pɑːk/","n.","公园","There is a park near our school.","我们学校附近有公园。"],["restaurant","/ˈrestərənt/","n.","餐馆","We had dinner in a restaurant.","我们在一家餐馆吃晚饭。"],["shop","/ʃɒp/","n./v.","商店；购物","The shop opens at eight.","商店八点开门。"],["bank","/bæŋk/","n.","银行","The bank is next to the school.","银行在学校旁边。"],["zoo","/zuː/","n.","动物园","We saw pandas at the zoo.","我们在动物园看到了熊猫。"],["street","/striːt/","n.","街道","Our school is on this street.","我们学校在这条街上。"],["bus","/bʌs/","n.","公共汽车","I go to school by bus.","我坐公交车上学。"],["car","/kɑː/","n.","小汽车","My father drives a car.","我爸爸开小汽车。"],["bike","/baɪk/","n.","自行车","He rides a bike to school.","他骑自行车上学。"],["taxi","/ˈtæksi/","n.","出租车","Let's take a taxi.","我们坐出租车吧。"],["train","/treɪn/","n.","火车","The train is very fast.","火车很快。"],["subway","/ˈsʌbweɪ/","n.","地铁","I take the subway every day.","我每天坐地铁。"],["plane","/pleɪn/","n.","飞机","We flew by plane.","我们坐飞机去的。"],["ship","/ʃɪp/","n.","轮船","The ship is very large.","这艘船很大。"],["boat","/bəʊt/","n.","小船","We went boating on the lake.","我们在湖上划船。"],["ticket","/ˈtɪkɪt/","n.","票","I bought two tickets.","我买了两张票。"],["station","/ˈsteɪʃn/","n.","车站","The station is far from here.","车站离这里很远。"],["airport","/ˈeəpɔːt/","n.","机场","We arrived at the airport early.","我们很早就到了机场。"],["road","/rəʊd/","n.","公路；道路","Look before you cross the road.","过马路前要看一看。"],["crossing","/ˈkrɒsɪŋ/","n.","十字路口","Turn left at the crossing.","在十字路口左转。"],["traffic","/ˈtræfɪk/","n.","交通","The traffic is heavy today.","今天交通很拥堵。"],["drive","/draɪv/","v.","驾驶","My mother drives to work.","我妈妈开车上班。"],["ride","/raɪd/","v.","骑；乘","Can you ride a bike?","你会骑自行车吗？"],["walk","/wɔːk/","v.","走；散步","I walk to school every day.","我每天走路去学校。"],["travel","/ˈtrævl/","v.","旅行","I want to travel around the world.","我想环游世界。"],["way","/weɪ/","n.","路；方式","Can you tell me the way?","你能告诉怎么走吗？"],["get up","/ɡet ʌp/","phr.","起床","I get up at six thirty.","我六点半起床。"],["go to bed","/ɡəʊ tə bed/","phr.","上床睡觉","I go to bed at nine.","我九点睡觉。"],["go to school","/ɡəʊ tə skuːl/","phr.","去上学","I go to school at seven.","我七点去上学。"],["go home","/ɡəʊ həʊm/","phr.","回家","I go home after school.","放学后我回家。"],["have breakfast","/hæv ˈbrekfəst/","phr.","吃早饭","I have breakfast at seven.","我七点吃早饭。"],["have lunch","/hæv lʌntʃ/","phr.","吃午饭","We have lunch at school.","我们在学校吃午饭。"],["have dinner","/hæv ˈdɪnə/","phr.","吃晚饭","We have dinner at six.","我们六点吃晚饭。"],["wash","/wæʃ/","v.","洗","I wash my hands before eating.","饭前我洗手。"],["brush","/brʌʃ/","v.","刷","Brush your teeth every day.","每天刷牙。"],["clean","/kliːn/","v./adj.","打扫；干净的","I clean my room on Sunday.","我周日打扫房间。"],["cook","/kʊk/","v.","做饭","My mother cooks well.","我妈妈做饭很好吃。"],["help","/help/","v.","帮助","Can you help me?","你能帮我吗？"],["play","/pleɪ/","v.","玩；打（球）","They play football after school.","他们放学后踢足球。"],["run","/rʌn/","v.","跑","He runs very fast.","他跑得很快。"],["jump","/dʒʌmp/","v.","跳","The rabbit can jump high.","兔子能跳得很高。"],["swim","/swɪm/","v.","游泳","I can swim well.","我游泳游得很好。"],["dance","/dɑːns/","v.","跳舞","She likes to dance.","她喜欢跳舞。"],["sing","/sɪŋ/","v.","唱歌","Let's sing a song.","我们唱首歌吧。"],["read","/riːd/","v.","读；阅读","I read English every morning.","我每天早上读英语。"],["write","/raɪt/","v.","写","Write your name here.","在这里写下你的名字。"],["draw","/drɔː/","v.","画画","I draw pictures on Sunday.","我周日画画。"],["listen","/ˈlɪsn/","v.","听","Listen to me carefully.","仔细听我说。"],["speak","/spiːk/","v.","说；讲","Can you speak English?","你会说英语吗？"],["talk","/tɔːk/","v.","交谈","Don't talk in class.","上课不要讲话。"],["say","/seɪ/","v.","说（内容）","What did you say?","你说什么？"],["tell","/tel/","v.","告诉；讲述","Tell me the truth.","告诉我真相。"],["watch","/wɒtʃ/","v.","观看","I watch TV on weekends.","周末我看电视。"],["look","/lʊk/","v.","看（动作）","Look at the blackboard.","看黑板。"],["see","/siː/","v.","看见","I can see a bird.","我能看见一只鸟。"],["meet","/miːt/","v.","遇见；见面","Nice to meet you.","很高兴见到你。"],["buy","/baɪ/","v.","买","I want to buy a book.","我想买一本书。"],["sell","/sel/","v.","卖","They sell fruit here.","他们在这里卖水果。"],["open","/ˈəʊpən/","v./adj.","打开；开着的","Open your books, please.","请打开书。"],["close","/kləʊz/","v.","关闭","Close the door, please.","请关门。"],["put","/pʊt/","v.","放","Put it on the desk.","把它放在桌上。"],["take","/teɪk/","v.","拿；乘","Take an umbrella with you.","带把伞。"],["give","/ɡɪv/","v.","给","Please give me a pen.","请给我一支钢笔。"],["find","/faɪnd/","v.","找到","I can't find my keys.","我找不到我的钥匙。"],["want","/wɒnt/","v.","想要","I want a new bag.","我想要一个新包。"],["need","/niːd/","v.","需要","You need to drink more water.","你需要多喝水。"],["classmate","/ˈklɑːsmeɪt/","n.","同学","My classmate is friendly.","我的同学很友好。"],["learn","/lɜːn/","v.","学会；学习","We learn new words in class.","我们在课上学新单词。"],["teach","/tiːtʃ/","v.","教","Miss Li teaches us English.","李老师教我们英语。"],["lesson","/ˈlesn/","n.","课；一节课","The first lesson begins at eight.","第一节课八点开始。"],["class","/klɑːs/","n.","班级；课","Our class has forty students.","我们班有四十名学生。"],["subject","/ˈsʌbdʒɪkt/","n.","科目","My favourite subject is maths.","我最喜欢的科目是数学。"],["English","/ˈɪŋɡlɪʃ/","n./adj.","英语；英国的","I speak a little English.","我会说一点英语。"],["Chinese","/ˌtʃaɪˈniːz/","n./adj.","语文；中文；中国的","We have Chinese in the morning.","我们上午上语文课。"],["maths","/mæθs/","n.","数学","Maths is easy for him.","数学对他来说很容易。"],["science","/ˈsaɪəns/","n.","科学","Science is interesting.","科学很有趣。"],["music","/ˈmjuːzɪk/","n.","音乐","I like pop music.","我喜欢流行音乐。"],["art","/ɑːt/","n.","美术；艺术","We have an art class today.","我们今天有美术课。"],["homework","/ˈhəʊmwɜːk/","n.","家庭作业","I finish my homework at seven.","我七点做完作业。"],["test","/test/","n./v.","测验","We have an English test today.","我们今天有英语测验。"],["exam","/ɪɡˈzæm/","n.","考试","The exam is next week.","考试在下周。"],["question","/ˈkwestʃən/","n.","问题","Can I ask a question?","我可以问个问题吗？"],["answer","/ˈɑːnsə/","n./v.","答案；回答","Do you know the answer?","你知道答案吗？"],["exercise","/ˈeksəsaɪz/","n./v.","练习；锻炼","Do more exercises after class.","课后多做练习。"],["paper","/ˈpeɪpə/","n.","纸；试卷","Give me a piece of paper.","给我一张纸。"],["word","/wɜːd/","n.","单词；话","I can spell this word.","我会拼这个单词。"],["kind","/kaɪnd/","adj.","善良的","She is kind to everyone.","她对每个人都友善。"],["friendly","/ˈfrendli/","adj.","友好的","Our teacher is very friendly.","我们老师非常友好。"],["polite","/pəˈlaɪt/","adj.","有礼貌的","It's polite to say thank you.","说谢谢是有礼貌的。"],["clever","/ˈklevə/","adj.","聪明的","He is a clever boy.","他是个聪明的男孩。"],["smart","/smɑːt/","adj.","聪明的；帅气的","She looks smart in that coat.","她穿那件外套很漂亮。"],["funny","/ˈfʌni/","adj.","有趣的；滑稽的","He is a funny man.","他是个有趣的人。"],["quiet","/ˈkwaɪət/","adj.","安静的","Please keep quiet in the library.","在图书馆请保持安静。"],["active","/ˈæktɪv/","adj.","活跃的","She is active in class.","她上课很活跃。"],["shy","/ʃaɪ/","adj.","害羞的","Don't be shy.","别害羞。"],["brave","/breɪv/","adj.","勇敢的","He is a brave boy.","他是个勇敢的孩子。"],["careful","/ˈkeəfl/","adj.","仔细的","Be careful with the knife.","小心用刀。"],["helpful","/ˈhelpfl/","adj.","有帮助的","Your idea is very helpful.","你的主意很有用。"],["honest","/ˈɒnɪst/","adj.","诚实的","Be honest with your parents.","对父母要诚实。"],["lazy","/ˈleɪzi/","adj.","懒惰的","Don't be lazy.","不要懒。"],["strict","/strɪkt/","adj.","严格的","My father is strict with me.","我爸爸对我很严格。"],["hard-working","/ˌhɑːd ˈwɜːkɪŋ/","adj.","勤奋的","She is a hard-working student.","她是个勤奋的学生。"],["popular","/ˈpɒpjələ/","adj.","受欢迎的","This song is popular.","这首歌很受欢迎。"],["lovely","/ˈlʌvli/","adj.","可爱的","What a lovely cat!","多可爱的一只猫！"],["serious","/ˈsɪəriəs/","adj.","严肃的；认真的","He looks serious today.","他今天看起来很严肃。"],["patient","/ˈpeɪʃnt/","adj./n.","有耐心的；病人","Be patient with children.","对孩子要有耐心。"],["big","/bɪɡ/","adj.","大的","This apple is very big.","这个苹果很大。"],["small","/smɔːl/","adj.","小的","My room is small.","我的房间很小。"],["long","/lɒŋ/","adj.","长的","She has long hair.","她有长头发。"],["short","/ʃɔːt/","adj.","短的；矮的","The ruler is short.","这把尺子很短。"],["tall","/tɔːl/","adj.","高的（人）","My brother is tall.","我哥哥很高。"],["high","/haɪ/","adj./adv.","高的（物）","The wall is high.","这墙很高。"],["low","/ləʊ/","adj.","低的","The chair is too low.","这椅子太低了。"],["heavy","/ˈhevi/","adj.","重的","The box is heavy.","这个盒子很重。"],["thin","/θɪn/","adj.","瘦的；薄的","The book is thin.","这本书很薄。"],["fat","/fæt/","adj.","胖的","The cat is a little fat.","这只猫有点胖。"],["strong","/strɒŋ/","adj.","强壮的","He is strong and tall.","他又壮又高。"],["fast","/fɑːst/","adj./adv.","快的；快地","He runs fast.","他跑得快。"],["slow","/sləʊ/","adj.","慢的","The old bus is slow.","那辆旧车很慢。"],["easy","/ˈiːzi/","adj.","容易的","The question is easy.","这个问题很容易。"],["hard","/hɑːd/","adj./adv.","难的；硬的；努力地","This work is hard.","这项工作很难。"],["new","/njuː/","adj.","新的","I have a new bike.","我有一辆新自行车。"],["old","/əʊld/","adj.","老的；旧的","My grandfather is old.","我爷爷年纪大了。"],["young","/jʌŋ/","adj.","年轻的","She is younger than me.","她比我小。"],["beautiful","/ˈbjuːtɪfl/","adj.","美丽的","What a beautiful garden!","多美的花园啊！"],["ugly","/ˈʌɡli/","adj.","丑陋的","The old house looks ugly.","那所旧房子看起来不好看。"],["Monday","/ˈmʌndeɪ/","n.","星期一","We have a test on Monday.","我们周一有测验。"],["Tuesday","/ˈtjuːzdeɪ/","n.","星期二","I have music on Tuesday.","我周二有音乐课。"],["Wednesday","/ˈwenzdeɪ/","n.","星期三","Wednesday is the middle of the week.","周三是一周的中间。"],["Thursday","/ˈθɜːzdeɪ/","n.","星期四","We play basketball on Thursday.","我们周四打篮球。"],["Friday","/ˈfraɪdeɪ/","n.","星期五","Friday is my favourite day.","星期五是我最喜欢的一天。"],["Saturday","/ˈsætədeɪ/","n.","星期六","I go swimming on Saturday.","我周六去游泳。"],["Sunday","/ˈsʌndeɪ/","n.","星期日","Sunday is a rest day.","周日是休息日。"],["week","/wiːk/","n.","星期；周","There are seven days in a week.","一周有七天。"],["weekend","/ˌwiːkˈend/","n.","周末","What do you do at the weekend?","你周末做什么？"],["weekday","/ˈwiːkdeɪ/","n.","工作日","I get up early on weekdays.","工作日我起得很早。"],["holiday","/ˈhɒlədeɪ/","n.","假日；假期","The summer holiday is coming.","暑假快到了。"],["vacation","/vəˈkeɪʃn/","n.","假期","We had a nice vacation.","我们度过了一个愉快的假期。"],["date","/deɪt/","n.","日期","What's the date today?","今天几号？"],["month","/mʌnθ/","n.","月份","February is a short month.","二月是短月份。"],["year","/jɪə/","n.","年","I am twelve years old.","我十二岁。"],["day","/deɪ/","n.","天；白天","Have a nice day!","祝你今天愉快！"],["today","/təˈdeɪ/","adv./n.","今天","What day is it today?","今天星期几？"],["tomorrow","/təˈmɒrəʊ/","adv./n.","明天","I will call you tomorrow.","我明天给你打电话。"],["yesterday","/ˈjestədeɪ/","adv./n.","昨天","It rained yesterday.","昨天下雨了。"],["birthday","/ˈbɜːθdeɪ/","n.","生日","Happy birthday to you!","祝你生日快乐！"],["January","/ˈdʒænjuəri/","n.","一月","January is the first month.","一月是第一个月。"],["February","/ˈfebruəri/","n.","二月","February has 28 days.","二月有二十八天。"],["March","/mɑːtʃ/","n.","三月","March comes after February.","三月在二月之后。"],["April","/ˈeɪprəl/","n.","四月","It often rains in April.","四月常下雨。"],["May","/meɪ/","n.","五月","May Day is on May 1st.","劳动节在五月一日。"],["June","/dʒuːn/","n.","六月","June 1st is Children's Day.","六月一日是儿童节。"],["July","/dʒʊˈlaɪ/","n.","七月","The holiday starts in July.","假期七月开始。"],["August","/ˈɔːɡəst/","n.","八月","August is very hot.","八月非常热。"],["September","/sepˈtembə/","n.","九月","The new term starts in September.","新学期九月开始。"],["October","/ɒkˈtəʊbə/","n.","十月","National Day is in October.","国庆节在十月。"],["November","/nəʊˈvembə/","n.","十一月","It gets cold in November.","十一月天气变冷。"],["December","/dɪˈsembə/","n.","十二月","Christmas is in December.","圣诞节在十二月。"],["morning","/ˈmɔːnɪŋ/","n.","早晨；上午","I read English in the morning.","我早上读英语。"],["afternoon","/ˌɑːftəˈnuːn/","n.","下午","We have classes in the afternoon.","我们下午上课。"],["evening","/ˈiːvnɪŋ/","n.","傍晚；晚上","I do homework in the evening.","我晚上做作业。"],["night","/naɪt/","n.","夜晚","Good night!","晚安！"],["early","/ˈɜːli/","adj./adv.","早的；早地","I get up early.","我起得早。"],["late","/leɪt/","adj./adv.","晚的；迟到","Don't be late for school.","上学不要迟到。"],["soon","/suːn/","adv.","不久；很快","I will be back soon.","我很快回来。"],["ago","/əˈɡəʊ/","adv.","以前","I moved here two years ago.","我两年前搬到这里。"],["sport","/spɔːt/","n.","运动","Sport is good for health.","运动有益健康。"],["football","/ˈfʊtbɔːl/","n.","足球","We play football after class.","我们课后踢足球。"],["basketball","/ˈbɑːskɪtbɔːl/","n.","篮球","He is good at basketball.","他篮球打得好。"],["ping-pong","/ˈpɪŋ pɒŋ/","n.","乒乓球","I play ping-pong with my father.","我和爸爸打乒乓球。"],["badminton","/ˈbædmɪntən/","n.","羽毛球","Let's play badminton.","我们打羽毛球吧。"],["volleyball","/ˈvɒlibɔːl/","n.","排球","The girls are playing volleyball.","女孩们在打排球。"],["tennis","/ˈtenɪs/","n.","网球","Tennis is an expensive sport.","网球是项昂贵的运动。"],["baseball","/ˈbeɪsbɔːl/","n.","棒球","Baseball is popular in Japan.","棒球在日本很流行。"],["swimming","/ˈswɪmɪŋ/","n.","游泳","Swimming is my hobby.","游泳是我的爱好。"],["running","/ˈrʌnɪŋ/","n.","跑步","Running makes me healthy.","跑步让我健康。"],["hiking","/ˈhaɪkɪŋ/","n.","远足；徒步","We go hiking on Sunday.","我们周日去远足。"],["camping","/ˈkæmpɪŋ/","n.","露营","Camping is fun.","露营很有趣。"],["fishing","/ˈfɪʃɪŋ/","n.","钓鱼","My grandpa likes fishing.","我爷爷喜欢钓鱼。"],["skating","/ˈskeɪtɪŋ/","n.","滑冰","She is good at skating.","她滑冰滑得好。"],["hobby","/ˈhɒbi/","n.","爱好","Reading is my hobby.","阅读是我的爱好。"],["game","/ɡeɪm/","n.","游戏；比赛","Let's play a game.","我们玩个游戏吧。"],["match","/mætʃ/","n.","比赛；火柴","There is a football match today.","今天有一场足球赛。"],["team","/tiːm/","n.","队；团队","Our team won the game.","我们队赢了比赛。"],["player","/ˈpleɪə/","n.","运动员；选手","He is a good player.","他是个好球员。"],["win","/wɪn/","v.","赢；获胜","I hope you win.","我希望你赢。"],["housework","/ˈhaʊswɜːk/","n.","家务","I help my mother with housework.","我帮妈妈做家务。"],["sweep","/swiːp/","v.","扫","I sweep the floor after dinner.","晚饭后我扫地。"],["dust","/dʌst/","v./n.","擦灰；灰尘","Please dust the table.","请擦一下桌子上的灰。"],["tidy","/ˈtaɪdi/","v./adj.","整理；整洁的","Tidy up your room.","整理你的房间。"],["fold","/fəʊld/","v.","折叠","I fold my clothes.","我折好衣服。"],["rubbish","/ˈrʌbɪʃ/","n.","垃圾","Take out the rubbish, please.","请把垃圾拿出去。"],["dish","/dɪʃ/","n.","盘子；盘菜","I wash the dishes after dinner.","晚饭后我洗碗。"],["chore","/tʃɔː/","n.","家务活","Everyone should do some chores.","每个人都应该做些家务。"],["laundry","/ˈlɔːndri/","n.","待洗的衣物；洗衣","I do the laundry on Sunday.","我周日洗衣服。"],["feed","/fiːd/","v.","喂养","I feed my cat twice a day.","我一天喂猫两次。"],["wipe","/waɪp/","v.","擦；抹","Wipe the table, please.","请擦一下桌子。"],["grow","/ɡrəʊ/","v.","种植；生长","We grow vegetables in the garden.","我们在花园里种菜。"],["pick","/pɪk/","v.","摘；挑选","We pick apples in autumn.","秋天我们摘苹果。"],["carry","/ˈkæri/","v.","搬运；携带","Can you carry this box?","你能搬这个箱子吗？"],["repair","/rɪˈpeə/","v.","修理","My father repairs bikes.","我爸爸修自行车。"],["share","/ʃeə/","v.","分享","Let's share the cake.","我们分享这个蛋糕吧。"],["care","/keə/","v./n.","关心；照顾","We should care for animals.","我们应该关心动物。"],["busy","/ˈbɪzi/","adj.","忙碌的","My father is busy today.","我爸爸今天很忙。"],["tired","/ˈtaɪəd/","adj.","疲劳的","I feel tired after running.","跑步后我觉得累。"],["free","/friː/","adj.","空闲的；免费的","I am free on Sunday.","我周日有空。"],["job","/dʒɒb/","n.","工作","My mother's job is a nurse.","我妈妈的工作是护士。"],["doctor","/ˈdɒktə/","n.","医生","You should see a doctor.","你应该去看医生。"],["nurse","/nɜːs/","n.","护士","My aunt is a nurse.","我姑姑是护士。"],["teacher","/ˈtiːtʃə/","n.","老师","Our teacher is young.","我们老师很年轻。"],["driver","/ˈdraɪvə/","n.","司机","The bus driver is kind.","公交车司机很和善。"],["farmer","/ˈfɑːmə/","n.","农民","The farmer works hard.","农民很辛苦地工作。"],["worker","/ˈwɜːkə/","n.","工人","The workers are busy.","工人们很忙。"],["chef","/ʃef/","n.","厨师","The chef makes great food.","这位厨师做的菜很棒。"],["policeman","/pəˈliːsmən/","n.","警察","The policeman helps people.","警察帮助人们。"],["postman","/ˈpəʊstmən/","n.","邮递员","The postman brings letters.","邮递员送信件。"],["businessman","/ˈbɪznəsmæn/","n.","商人","He is a successful businessman.","他是个成功的商人。"],["scientist","/ˈsaɪəntɪst/","n.","科学家","I want to be a scientist.","我想成为科学家。"],["pilot","/ˈpaɪlət/","n.","飞行员","A pilot can fly planes.","飞行员会开飞机。"],["coach","/kəʊtʃ/","n.","教练","Our coach is very strict.","我们的教练很严格。"],["singer","/ˈsɪŋə/","n.","歌手","She is a famous singer.","她是个著名歌手。"],["dancer","/ˈdɑːnsə/","n.","舞蹈演员","My sister is a dancer.","我姐姐是舞蹈演员。"],["writer","/ˈraɪtə/","n.","作家","Lu Xun is a great writer.","鲁迅是一位伟大的作家。"],["artist","/ˈɑːtɪst/","n.","艺术家","The artist draws well.","这位艺术家画得很好。"],["engineer","/ˌendʒɪˈnɪə/","n.","工程师","My father is an engineer.","我爸爸是工程师。"],["actor","/ˈæktə/","n.","演员","He wants to be an actor.","他想成为演员。"],["happy","/ˈhæpi/","adj.","快乐的","I am happy to see you.","见到你我很高兴。"],["sad","/sæd/","adj.","难过的","She looks sad today.","她今天看起来很难过。"],["angry","/ˈæŋɡri/","adj.","生气的","Don't be angry with me.","别生我的气。"],["afraid","/əˈfreɪd/","adj.","害怕的","I am afraid of dogs.","我怕狗。"],["worried","/ˈwʌrid/","adj.","担心的","My mother is worried about me.","我妈妈担心我。"],["excited","/ɪkˈsaɪtɪd/","adj.","兴奋的","We are excited about the trip.","我们对这次旅行很兴奋。"],["glad","/ɡlæd/","adj.","高兴的","I'm glad to help you.","我很高兴帮助你。"],["bored","/bɔːd/","adj.","无聊的","He feels bored at home.","他在家觉得无聊。"],["surprised","/səˈpraɪzd/","adj.","惊讶的","I was surprised to see him.","见到他我很惊讶。"],["nervous","/ˈnɜːvəs/","adj.","紧张的","Don't be nervous before the exam.","考试前不要紧张。"],["proud","/praʊd/","adj.","自豪的","I am proud of my school.","我为我的学校感到自豪。"],["sorry","/ˈsɒri/","adj.","抱歉的","I'm sorry I am late.","抱歉我迟到了。"],["lonely","/ˈləʊnli/","adj.","孤独的","He feels lonely at night.","他夜里感到孤独。"],["hungry","/ˈhʌŋɡri/","adj.","饥饿的","I am hungry now.","我现在饿了。"],["thirsty","/ˈθɜːsti/","adj.","口渴的","I feel thirsty after running.","跑步后我口渴。"],["comfortable","/ˈkʌmftəbl/","adj.","舒适的","The sofa is comfortable.","这张沙发很舒服。"],["interested","/ˈɪntrəstɪd/","adj.","感兴趣的","I am interested in science.","我对科学感兴趣。"],["pleased","/pliːzd/","adj.","高兴的；满意的","My parents are pleased with me.","我父母对我很满意。"],["calm","/kɑːm/","adj.","平静的","Keep calm, please.","请保持冷静。"],["upset","/ʌpˈset/","adj.","难过的；心烦的","She was upset about the news.","她对这个消息很难过。"],["nature","/ˈneɪtʃə/","n.","自然","We should protect nature.","我们应该保护自然。"],["forest","/ˈfɒrɪst/","n.","森林","The forest is very large.","这片森林很大。"],["river","/ˈrɪvə/","n.","河","The river is clean.","这条河很干净。"],["lake","/leɪk/","n.","湖","We swam in the lake.","我们在湖里游泳。"],["mountain","/ˈmaʊntən/","n.","山","The mountain is high.","这座山很高。"],["hill","/hɪl/","n.","小山","There is a house on the hill.","山丘上有一所房子。"],["tree","/triː/","n.","树","The tree is very old.","这棵树很老。"],["flower","/ˈflaʊə/","n.","花","The flowers are beautiful.","这些花很美。"],["grass","/ɡrɑːs/","n.","草；草地","Don't walk on the grass.","不要践踏草地。"],["leaf","/liːf/","n.","叶子（复数leaves）","The leaves turn yellow in autumn.","秋天树叶变黄。"],["bridge","/brɪdʒ/","n.","桥","There is a bridge over the river.","河上有一座桥。"],["building","/ˈbɪldɪŋ/","n.","建筑物","That building is very tall.","那座建筑很高。"],["village","/ˈvɪlɪdʒ/","n.","村庄","My grandpa lives in a village.","我爷爷住在一个村庄。"],["city","/ˈsɪti/","n.","城市","Hangzhou is a beautiful city.","杭州是座美丽的城市。"],["town","/taʊn/","n.","镇；城镇","The town is quiet at night.","这个小镇夜里很安静。"],["country","/ˈkʌntri/","n.","国家；乡村","China is a big country.","中国是个大国。"],["island","/ˈaɪlənd/","n.","岛","Hainan is an island.","海南是一个岛。"],["sea","/siː/","n.","海","The sea is blue.","大海是蓝色的。"],["sky","/skaɪ/","n.","天空","The sky is clear today.","今天天空晴朗。"],["world","/wɜːld/","n.","世界","The world is big.","世界很大。"],["become","/bɪˈkʌm/","v.","变成；成为","He wants to become a doctor.","他想成为一名医生。"],["begin","/bɪˈɡɪn/","v.","开始","The class begins at eight.","课八点开始。"],["believe","/bɪˈliːv/","v.","相信","I believe you.","我相信你。"],["bring","/brɪŋ/","v.","带来","Bring your book tomorrow.","明天把你的书带来。"],["build","/bɪld/","v.","建造","They will build a new school.","他们要建一所新学校。"],["catch","/kætʃ/","v.","抓住；赶上","Hurry up, or we can't catch the bus.","快点，不然赶不上公交车。"],["change","/tʃeɪndʒ/","v./n.","改变；找零","You can change your habit.","你可以改变你的习惯。"],["choose","/tʃuːz/","v.","选择","Choose one, please.","请选一个。"],["decide","/dɪˈsaɪd/","v.","决定","I decided to study harder.","我决定更努力地学习。"],["enjoy","/ɪnˈdʒɔɪ/","v.","享受；喜欢","I enjoy reading books.","我喜欢读书。"],["finish","/ˈfɪnɪʃ/","v.","完成","I finish my homework early.","我很早就做完作业。"],["forget","/fəˈɡet/","v.","忘记","Don't forget your key.","别忘了你的钥匙。"],["hope","/həʊp/","v./n.","希望","I hope you will come.","我希望你来。"],["improve","/ɪmˈpruːv/","v.","提高；改善","I want to improve my English.","我想提高英语。"],["join","/dʒɔɪn/","v.","参加；加入","Can I join you?","我可以加入你们吗？"],["keep","/kiːp/","v.","保持；保留","Keep quiet in class.","上课保持安静。"],["leave","/liːv/","v.","离开；留下","The bus leaves at seven.","公交车七点出发。"],["practice","/ˈpræktɪs/","v./n.","练习","Practice makes perfect.","熟能生巧。"],["remember","/rɪˈmembə/","v.","记得","I remember your name.","我记得你的名字。"],["spend","/spend/","v.","花费","I spend an hour reading.","我花一小时读书。"],["difficult","/ˈdɪfɪkəlt/","adj.","困难的","English is not difficult.","英语不难。"],["important","/ɪmˈpɔːtnt/","adj.","重要的","Health is important.","健康很重要。"],["different","/ˈdɪfrənt/","adj.","不同的","We have different ideas.","我们有不同的想法。"],["interesting","/ˈɪntrəstɪŋ/","adj.","有趣的","The book is interesting.","这本书很有趣。"],["exciting","/ɪkˈsaɪtɪŋ/","adj.","令人兴奋的","It was an exciting match.","那是一场令人兴奋的比赛。"],["dangerous","/ˈdeɪndʒərəs/","adj.","危险的","Swimming there is dangerous.","在那里游泳很危险。"],["safe","/seɪf/","adj.","安全的","Keep yourself safe.","照顾好自己安全。"],["possible","/ˈpɒsəbl/","adj.","可能的","It is possible to finish today.","今天完成是可能的。"],["necessary","/ˈnesəsəri/","adj.","必要的","It's necessary to sleep enough.","足够的睡眠是必要的。"],["useful","/ˈjuːsfl/","adj.","有用的","English is useful for us.","英语对我们很有用。"],["famous","/ˈfeɪməs/","adj.","著名的","He is a famous writer.","他是一位著名作家。"],["traditional","/trəˈdɪʃənl/","adj.","传统的","Dumplings are traditional food.","饺子是传统食物。"],["special","/ˈspeʃl/","adj.","特别的","Today is a special day.","今天是特别的一天。"],["common","/ˈkɒmən/","adj.","常见的","It's a common mistake.","这是个常见的错误。"],["modern","/ˈmɒdn/","adj.","现代的","The city has modern buildings.","这城市有现代建筑。"],["terrible","/ˈterəbl/","adj.","糟糕的","The weather was terrible.","天气糟透了。"],["wonderful","/ˈwʌndəfl/","adj.","精彩的；极好的","We had a wonderful time.","我们过得很愉快。"],["really","/ˈrɪəli/","adv.","真的；确实","I really like this song.","我真的喜欢这首歌。"],["quickly","/ˈkwɪkli/","adv.","快速地","Run quickly, please.","请快点跑。"],["finally","/ˈfaɪnəli/","adv.","最后；终于","We finally got home.","我们终于到家了。"],["always","/ˈɔːlweɪz/","adv.","总是","I always get up early.","我总是早起。"],["usually","/ˈjuːʒuəli/","adv.","通常","I usually do homework at seven.","我通常七点做作业。"],["often","/ˈɒfn/","adv.","经常","We often play together.","我们经常一起玩。"],["sometimes","/ˈsʌmtaɪmz/","adv.","有时","Sometimes I walk to school.","有时我走路去学校。"],["never","/ˈnevə/","adv.","从不","He never forgets my birthday.","他从不忘我的生日。"],["seldom","/ˈseldəm/","adv.","很少","I seldom go to bed late.","我很少晚睡。"],["again","/əˈɡen/","adv.","再一次","Read it again, please.","请再读一遍。"],["already","/ɔːlˈredi/","adv.","已经","I have already finished.","我已经做完了。"],["just","/dʒʌst/","adv.","刚刚；只是","I just came home.","我刚到家。"],["still","/stɪl/","adv.","仍然","He is still reading.","他还在读书。"],["ever","/ˈevə/","adv.","曾经","Have you ever been to Beijing?","你去过北京吗？"],["together","/təˈɡeðə/","adv.","一起","Let's study together.","我们一起学习吧。"],["almost","/ˈɔːlməʊst/","adv.","几乎","It's almost six o'clock.","快六点了。"],["maybe","/ˈmeɪbi/","adv.","也许","Maybe he is right.","也许他是对的。"],["certainly","/ˈsɜːtənli/","adv.","当然；肯定","Certainly, I can help you.","当然，我可以帮你。"],["carefully","/ˈkeəfəli/","adv.","仔细地","Read the question carefully.","仔细读题。"],["quietly","/ˈkwaɪətli/","adv.","安静地","He walks in quietly.","他安静地走进来。"],["suddenly","/ˈsʌdənli/","adv.","突然","Suddenly it began to rain.","突然下起雨来。"],["luckily","/ˈlʌkɪli/","adv.","幸运地","Luckily, I found my key.","幸运的是我找到钥匙了。"],["however","/haʊˈevə/","adv.","然而","It's hard, however, I like it.","这很难，然而我喜欢它。"],["idea","/aɪˈdɪə/","n.","主意；想法","That's a good idea.","那是个好主意。"],["problem","/ˈprɒbləm/","n.","问题；难题","Let's solve the problem.","我们来解决问题。"],["plan","/plæn/","n./v.","计划","What's your plan for Sunday?","你周日有什么计划？"],["dream","/driːm/","n./v.","梦想；做梦","My dream is to be a teacher.","我的梦想是当老师。"],["future","/ˈfjuːtʃə/","n.","未来","I will work hard in the future.","将来我会努力。"],["health","/helθ/","n.","健康","Health comes first.","健康第一。"],["habit","/ˈhæbɪt/","n.","习惯","Reading is a good habit.","阅读是个好习惯。"],["energy","/ˈenədʒi/","n.","能量；精力","Breakfast gives us energy.","早餐给我们能量。"],["message","/ˈmesɪdʒ/","n.","消息；信息","I got your message.","我收到你的消息了。"],["information","/ˌɪnfəˈmeɪʃn/","n.","信息","I need more information.","我需要更多信息。"],["reason","/ˈriːzn/","n.","原因；理由","Tell me the reason.","告诉我原因。"],["chance","/tʃɑːns/","n.","机会","Give me a chance.","给我一次机会。"],["rule","/ruːl/","n.","规则；规矩","We must follow the rules.","我们必须遵守规则。"],["safety","/ˈseɪfti/","n.","安全","Safety is the most important.","安全是最重要的。"],["knowledge","/ˈnɒlɪdʒ/","n.","知识","Books give us knowledge.","书给我们知识。"],["skill","/skɪl/","n.","技能","Swimming is a useful skill.","游泳是有用的技能。"],["culture","/ˈkʌltʃə/","n.","文化","I like Chinese culture.","我喜欢中国文化。"],["environment","/ɪnˈvaɪrənmənt/","n.","环境","We must protect the environment.","我们必须保护环境。"],["pollution","/pəˈluːʃn/","n.","污染","Air pollution is a big problem.","空气污染是个大问题。"],["protection","/prəˈtekʃn/","n.","保护","Animals need our protection.","动物需要我们的保护。"]];
+var TOPICS = ['文具与教室','颜色与形状','身体部位','农场动物','野生动物','食物与饮料','水果和蔬菜','数字与时间','家人与称呼','家居与房间','衣物','天气与季节','学校与场所','交通与出行','日常动作①','日常动作②','学习与校园','描写人的形容词','常用形容词','星期与时间','月份与时间词','运动与爱好','家务与劳动','职业','情感与感受','自然与地理','高频动词','抽象形容词','频度与副词','高频名词'];
+var KEY='danci_g6_v2';
+var GAP=[1,1,2,4,7,15,30];
+
+var WMAP={}, WIDX={};
+for(var i=0;i<WORDS.length;i++){var k=WORDS[i][0].toLowerCase();WMAP[k]=WORDS[i];WIDX[k]=i;}
+
+var DB=null, view='home', S=null, Q=null, DT=null;
+
+function pad(n){return n<10?('0'+n):(''+n);}
+function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+function parseD(s){var p=s.split('-');return new Date(+p[0],(+p[1])-1,+p[2]);}
+function addDays(s,n){var d=parseD(s);d.setDate(d.getDate()+n);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+function dateCN(s){var d=parseD(s);var w=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];return (d.getMonth()+1)+'月'+d.getDate()+'日 '+w[d.getDay()];}
+
+function defaultDB(){return {v:2,daily:20,speak:true,phon:true,ptr:0,words:{},plans:{},logs:{},created:todayStr()};}
+function loadDB(){
+  try{
+    var raw=localStorage.getItem(KEY);
+    if(raw){var o=JSON.parse(raw);return Object.assign(defaultDB(),o);}
+  }catch(e){}
+  return defaultDB();
+}
+var saveWarned=false;
+function save(){
+  try{localStorage.setItem(KEY,JSON.stringify(DB));}
+  catch(e){ if(!saveWarned){saveWarned=true;toast('进度无法保存，请换 Chrome 打开或改用局域网地址');} }
+}
+var storageOK=true;
+function checkStorage(){
+  try{ localStorage.setItem('__dc_t','1'); localStorage.removeItem('__dc_t'); return true; }
+  catch(e){ return false; }
+}
+
+function toast(msg){
+  var t=document.getElementById('toast');t.textContent=msg;t.className='toast show';
+  clearTimeout(t._tm);t._tm=setTimeout(function(){t.className='toast';},1800);
+}
+
+/* ---------- 发音 ---------- */
+var voiceOK=('speechSynthesis' in window);
+var _au=null;
+function ensureAudio(){
+  if(_au)return _au;
+  try{ _au=new Audio(); _au.preload='auto'; }catch(e){ _au=null; }
+  return _au;
+}
+function playAudio(url,onFail){
+  var a=ensureAudio();
+  if(!a){ if(onFail)onFail(); return; }
+  try{
+    a.onerror=null;
+    a.src=url;
+    try{ a.load(); }catch(e){}
+    a.onerror=function(){ if(onFail)onFail(); };
+    var p=a.play();
+    if(p&&p.catch){ p.catch(function(){ if(onFail)onFail(); }); }
+  }catch(e){ if(onFail)onFail(); }
+}
+/* 单词用有道（词典音质好），句子用百度（有道不支持长句，会返回 500） */
+function ttsList(t){
+  var enc=encodeURIComponent(t);
+  var yd='https://dict.youdao.com/dictvoice?audio='+enc+'&type=2';
+  var bd='https://fanyi.baidu.com/gettts?lan=en&text='+enc+'&spd=3&source=web';
+  var isSentence=(/\s/.test(t)||t.length>15);
+  return isSentence?[bd,yd]:[yd,bd];
+}
+function onlineSpeak(txt){
+  var t=(txt||'').replace(/[.。！？!?]+$/,'').trim();
+  if(!t)return;
+  var list=ttsList(t),i=0;
+  function next(){
+    if(i>=list.length){ toast('发音加载失败，请检查网络'); return; }
+    playAudio(list[i++],next);
+  }
+  next();
+}
+function speakText(txt,rate){
+  if(!DB.speak)return;
+  if(voiceOK){
+    try{
+      var vs=window.speechSynthesis.getVoices();
+      if(vs&&vs.length){
+        window.speechSynthesis.cancel();
+        var u=new SpeechSynthesisUtterance(txt);
+        u.lang='en-US';u.rate=rate||0.86;u.pitch=1;
+        var pick=null;
+        for(var i=0;i<vs.length;i++){if((vs[i].lang||'').toLowerCase().indexOf('en-us')===0){pick=vs[i];break;}}
+        if(!pick){for(var j=0;j<vs.length;j++){if((vs[j].lang||'').toLowerCase().indexOf('en')===0){pick=vs[j];break;}}}
+        if(pick)u.voice=pick;
+        u.onerror=function(){onlineSpeak(txt);};
+        window.speechSynthesis.speak(u);
+        setTimeout(function(){
+          try{
+            if(!window.speechSynthesis.speaking&&!window.speechSynthesis.pending)onlineSpeak(txt);
+          }catch(e){}
+        },800);
+        return;
+      }
+    }catch(e){}
+  }
+  onlineSpeak(txt);
+}
+function speakCurrent(){
+  if(!S)return;
+  var key=S.stages[S.stage].keys[S.idx];
+  if(!key)return;
+  if(S.flipped&&WMAP[key]){speakText(WMAP[key][4]||key,0.82);}
+  else speakText(key,0.86);
+}
+function speakSentence(){
+  var key=curKey();
+  if(!key)return;
+  var w=WMAP[key];
+  if(w&&w[4])speakText(w[4],0.78);else speakText(key,0.86);
+}
+
+/* ---------- 计划 ---------- */
+function buildPlan(){
+  var d=todayStr();
+  var plan={date:d,news:[],rev:[],posNew:0,posRev:0,newDone:false,revDone:false,quizDone:false,rightN:0,totalN:0,nextPtr:DB.ptr};
+  var need=DB.daily,p=DB.ptr,picked=0;
+  while(picked<need && p<WORDS.length){
+    var k=WORDS[p][0].toLowerCase();
+    if(!DB.words[k]){plan.news.push(k);picked++;}
+    p++;
+  }
+  plan.nextPtr=p;
+  var arr=[],t=todayStr();
+  for(var key in DB.words){
+    var r=DB.words[key];
+    if(r && r.next && r.next<=t && r.s<7 && arr.length<40)arr.push(key);
+  }
+  arr.sort(function(a,b){
+    var x=DB.words[a].next||'9999',y=DB.words[b].next||'9999';
+    if(x<y)return -1;if(x>y)return 1;return 0;
+  });
+  plan.rev=arr;
+  return plan;
+}
+function getPlan(){
+  var d=todayStr();
+  if(DB.plans[d])return DB.plans[d];
+  return buildPlan();
+}
+function ensurePlan(){
+  var d=todayStr();
+  if(!DB.plans[d]){
+    var p=buildPlan();
+    DB.plans[d]=p;
+    DB.ptr=p.nextPtr;
+    save();
+  }
+  return DB.plans[d];
+}
+
+/* ---------- 记分 ---------- */
+function applyResult(key,ok){
+  var r=DB.words[key];
+  if(!r){r={s:0,n:0,ok:0,bad:0,next:null,last:null};}
+  var t=todayStr();
+  r.n++;
+  if(ok){
+    r.ok++;r.s=Math.min(6,r.s+1);
+    if(r.bad>0)r.bad--;
+    r.next=addDays(t,GAP[r.s]);
+  }else{
+    r.bad++;r.s=(r.s<=1?0:r.s-1);
+    r.next=addDays(t,1);
+  }
+  r.last=t;
+  DB.words[key]=r;
+  save();
+}
+
+/* ---------- 渲染入口 ---------- */
+function render(){
+  var plan=getPlan();
+  document.getElementById('topinfo').innerHTML=dateCN(todayStr())+'<br>已收录 '+WORDS.length+' 词 · 已学 '+Object.keys(DB.words).length;
+  renderNav();
+  var m=document.getElementById('main');
+  if(view==='home')m.innerHTML=homeHTML();
+  else if(view==='study')m.innerHTML=studyHTML();
+  else if(view==='quiz')m.innerHTML=quizHTML();
+  else if(view==='dict')m.innerHTML=dictHTML();
+  else if(view==='wrong')m.innerHTML=wrongHTML();
+  else if(view==='stat')m.innerHTML=statHTML();
+  else if(view==='set')m.innerHTML=setHTML();
+}
+function scrollFix(){window.scrollTo(0,0);}
+function go(v){view=v;render();scrollFix();}
+function renderNav(){
+  var items=[['home','🏠','首页'],['study','📖','学习'],['quiz','✏️','测试'],['wrong','📕','错词'],['stat','📊','统计'],['set','⚙️','设置']];
+  var h='';
+  for(var i=0;i<items.length;i++){
+    var on=((view===items[i][0])||(view==='dict'&&items[i][0]==='quiz'))?' on':'';
+    h+='<a class="'+on.trim()+'" href="javascript:void(0)" onclick="go(\''+items[i][0]+'\')"><span class="ic">'+items[i][1]+'</span>'+items[i][2]+'</a>';
+  }
+  document.getElementById('nav').innerHTML=h;
+}
+
+/* ---------- 首页 ---------- */
+function homeHTML(){
+  var plan=getPlan();
+  var newTotal=plan.news.length,newDone=plan.posNew;
+  var revTotal=plan.rev.length,revDone=plan.posRev;
+  var learned=Object.keys(DB.words).length;
+  var mastered=0;
+  for(var k in DB.words){if(DB.words[k].s>=4)mastered++;}
+  var streak=calcStreak();
+  var np=Math.round(newDone/(newTotal||1)*100);
+  var rp=Math.round(revDone/(revTotal||1)*100);
+  var quizTip=plan.quizDone?('<b class="big" style="font-size:18px">今天已完成 ✅</b>'):('<b class="big" style="font-size:18px">'+(plan.totalN||0)+' 题 · 对 '+(plan.rightN||0)+'</b>');
+  var h='';
+  if(!storageOK){
+    h+='<div class="warn">⚠ 当前浏览器不能保存学习进度，学完关掉就会清零。<br>解决办法：换 Chrome 打开，或让家长用「手机访问-双击启动.bat」的局域网地址打开。</div>';
+  }
+  h+='<div class="hero">';
+  h+='<h1>今天背 '+DB.daily+' 个单词</h1>';
+  h+='<div class="sub">'+dateCN(todayStr())+' · 累计已学 '+learned+' 词</div>';
+  h+='<div class="row"><span class="pill">🔥 连续打卡 '+streak+' 天</span><span class="pill">🏆 已掌握 '+mastered+' 词</span></div>';
+  h+='</div>';
+  h+='<div class="grid">';
+  h+='<div class="mini'+(newDone>=newTotal&&newTotal>0?' done':'')+'"><b>'+newDone+'/'+newTotal+'</b><span>今日新词</span></div>';
+  h+='<div class="mini'+(revDone>=revTotal&&revTotal>0?' done':'')+'"><b>'+(revTotal?(revDone+'/'+revTotal):'—')+'</b><span>今日复习</span></div>';
+  h+='<div class="mini'+(plan.quizDone?' done':'')+'"><b>'+(plan.quizDone?'✓':((plan.totalN||0)+' 题'))+'</b><span>今日测试</span></div>';
+  h+='</div>';
+  var packIdx=plan.news.length?(Math.floor(WIDX[plan.news[0]]/20)):(Math.floor(DB.ptr/20));
+  h+='<div class="card">';
+  h+='<div class="tagrow"><span class="tag">今日任务</span><span class="topic">词包 '+(packIdx+1)+'：'+(TOPICS[packIdx]||'')+'</span></div>';
+  h+='<div style="font-size:14px;color:#5a6785">新词 '+newDone+'/'+newTotal+'</div><div class="bar"><i style="width:'+np+'%"></i></div>';
+  if(revTotal>0){h+='<div style="font-size:14px;color:#5a6785;margin-top:12px">复习（记忆曲线到期）'+revDone+'/'+revTotal+'</div><div class="bar"><i style="width:'+rp+'%"></i></div>';}
+  h+='<div class="actions">';
+  if(newDone<newTotal||revDone<revTotal)
+    h+='<button class="btn wide" onclick="startStudy(\'all\')">▶ 开始今天的学习</button>';
+  else
+    h+='<button class="btn good wide" onclick="startQuiz()">✅ 今日学习完成，去做测试</button>';
+  h+='</div>';
+  h+='<div class="actions">';
+  h+='<button class="btn ghost sm" onclick="go(\'wrong\')">📕 错词本</button>';
+  h+='<button class="btn ghost sm" onclick="go(\'stat\')">📊 学习统计</button>';
+  h+='</div>';
+  h+='<div class="actions">';
+  h+='<button class="btn ghost sm" onclick="startDictate(\'word\')">🎧 单词听写</button>';
+  h+='<button class="btn ghost sm" onclick="startDictate(\'sentence\')">🎧 句子听写</button>';
+  h+='</div>';
+  h+='</div>';
+
+  /* 今日词表预览 */
+  if(plan.news.length){
+    h+='<div class="card tight"><div class="tagrow"><span class="tag">今日单词表</span><span class="topic">先看一遍，眼熟再学</span></div>';
+    h+='<div style="display:flex;flex-wrap:wrap;gap:8px">';
+    for(var i2=0;i2<plan.news.length;i2++){
+      var w=WMAP[plan.news[i2]];
+      var done=(i2<plan.posNew);
+      h+='<span style="background:'+(done?'#eafaf2':'#f3f6ff')+';color:'+(done?'#2f9a68':'#42527a')+';border-radius:10px;padding:6px 10px;font-size:14px">'+w[0]+(done?' ✓':'')+'</span>';
+    }
+    h+='</div></div>';
+  } else {
+    h+='<div class="card"><div class="empty">全部 '+WORDS.length+' 个单词都学完了 🎉<br>接下来靠复习和测试巩固，或去设置里导出进度。</div></div>';
+  }
+  return h;
+}
+function calcStreak(){
+  var d=todayStr(),n=0;
+  var lg=DB.logs[d];
+  if(!(lg&&lg.newDone))d=addDays(d,-1);
+  for(var i=0;i<400;i++){
+    var l=DB.logs[d];
+    if(l&&l.newDone){n++;d=addDays(d,-1);}else break;
+  }
+  return n;
+}
+
+/* ---------- 学习 ---------- */
+function startStudy(mode){
+  var plan=ensurePlan();
+  var stages=[];
+  if(mode==='new'||mode==='all'){
+    if(plan.posNew<plan.news.length)stages.push({type:'new',keys:plan.news.slice(plan.posNew)});
+  }
+  if(mode==='rev'||mode==='all'){
+    if(plan.posRev<plan.rev.length)stages.push({type:'rev',keys:plan.rev.slice(plan.posRev)});
+  }
+  if(!stages.length){S=null;toast('今天这项已经完成了');if(view==='study'){go('home');}return;}
+  S={stages:stages,stage:0,idx:0,flipped:false,know:0,no:0};
+  view='study';render();
+  if(DB.speak)setTimeout(function(){speakText(stages[0].keys[0],0.86);},350);
+}
+function curKey(){
+  if(!S)return null;
+  var st=S.stages[S.stage];
+  return st.keys[S.idx];
+}
+function studyHTML(){
+  if(!S)return '<div class="card"><div class="empty">还没有开始学习</div><div class="actions"><button class="btn wide" onclick="startStudy(\'all\')">开始</button></div></div>';
+  var st=S.stages[S.stage];
+  if(!st||S.idx>=st.keys.length)return finishStudyView();
+  var key=curKey();var w=WMAP[key];
+  if(!w)return finishStudyView();
+  var tagTxt=st.type==='new'?'新词':'复习';
+  var tagCls=st.type==='new'?'tag':'tag rev';
+  var packIdx=Math.floor(WIDX[key]/20);
+  var h='';
+  h+='<div class="card">';
+  h+='<div class="tagrow"><span class="'+tagCls+'">'+tagTxt+' '+(S.idx+1)+'/'+st.keys.length+'</span><span class="topic">'+(TOPICS[packIdx]||'')+'</span></div>';
+  h+='<div class="wordline"><span class="word">'+w[0]+'</span><button class="spk" onclick="speakCurrent()">🔊</button></div>';
+  if(DB.phon)h+='<div class="phon">'+w[1]+'</div>';
+  if(S.flipped){
+    h+='<div class="reveal">';
+    h+='<div class="cn">'+w[3]+'</div>';
+    h+='<div class="pos">'+w[2]+'</div>';
+    if(w[4])h+='<div class="ex"><div style="display:flex;gap:10px;align-items:center"><span style="flex:1">'+hi(w[4],w[0])+'</span><button class="spk" style="width:34px;height:34px;font-size:15px;flex:0 0 34px" onclick="speakSentence()">🔊</button></div><div class="excn">'+w[5]+'</div></div>';
+    h+='</div>';
+  }else{
+    h+='<div class="hint">先在心里想一想它的意思，再点下面按钮</div>';
+  }
+  h+='</div>';
+  if(!S.flipped){
+    h+='<div class="actions"><button class="btn wide" onclick="flipCard()">看释义</button></div>';
+    h+='<div class="hint" style="margin-top:8px">先自己回忆，回想不起来也没关系，看了答案再判断</div>';
+  }else{
+    h+='<div class="actions"><button class="btn bad" onclick="answer(0)">😕 没记住</button><button class="btn good" onclick="answer(1)">🙂 记住了</button></div>';
+  }
+  h+='<div class="hint kb" style="margin-top:12px">快捷键：空格 看释义 / 1 没记住 / 2 记住了</div>';
+  return h;
+}
+function hi(s,w){
+  try{
+    var re=new RegExp('\\b'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','gi');
+    if(re.test(s)){return s.replace(re,'<em>'+w+'</em>');}
+  }catch(e){}
+  return s;
+}
+function flipCard(){if(!S)return;S.flipped=true;render();}
+function answer(ok){
+  var key=curKey();if(!key)return;
+  applyResult(key,ok?1:0);
+  if(ok)S.know++;else S.no++;
+  var plan=ensurePlan();
+  var st=S.stages[S.stage];
+  if(st.type==='new'){plan.posNew++;if(plan.posNew>=plan.news.length){plan.newDone=true;markLog('newDone');}}
+  else {plan.posRev++;if(plan.posRev>=plan.rev.length){plan.revDone=true;markLog('revDone');}}
+  save();
+  S.idx++;S.flipped=false;
+  if(S.idx>=st.keys.length){
+    S.stage++;
+    if(S.stage>=S.stages.length){render();return;}
+    S.idx=0;
+  }
+  render();
+}
+function markLog(field){
+  var d=todayStr();
+  if(!DB.logs[d])DB.logs[d]={};
+  DB.logs[d][field]=true;
+  save();
+}
+function finishStudyView(){
+  var h='<div class="card"><div class="bigresult"><div class="num">🎉</div>';
+  h+='<div style="font-size:18px;font-weight:700;color:#2f9a68">今天的学习任务完成啦</div>';
+  h+='<div style="color:#7d89a6;font-size:14px;margin-top:6px">记住 '+S.know+' 个，需要再练 '+S.no+' 个</div></div>';
+  h+='<div class="actions"><button class="btn wide" onclick="startQuiz()">✏️ 马上测试一下</button></div>';
+  h+='<div class="actions"><button class="btn ghost sm" onclick="startWrongDrill()">练错词</button><button class="btn ghost sm" onclick="go(\'home\')">回首页</button></div>';
+  h+='</div>';
+  return h;
+}
+
+/* ---------- 测试 ---------- */
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function allKeys(){var a=[];for(var k in WMAP)a.push(k);return a;}
+function packMates(key){
+  var i0=WIDX[key], s=Math.floor(i0/20)*20, e=Math.min(WORDS.length,s+20), a=[];
+  for(var i=s;i<e;i++){var k=WORDS[i][0].toLowerCase();if(k!==key)a.push(k);}
+  return a;
+}
+function distract(key,need,field){
+  var pool=packMates(key).slice();
+  var extra=allKeys();
+  var used=[WMAP[key][field]];
+  var out=[];
+  while(out.length<need){
+    var cand=null;
+    if(pool.length)cand=pool.splice(Math.floor(Math.random()*pool.length),1)[0];
+    else {
+      var r=extra[Math.floor(Math.random()*extra.length)];
+      if(!r)break;
+      cand=r;
+    }
+    if(!cand)break;
+    if(used.indexOf(WMAP[cand][field])>=0)continue;
+    used.push(WMAP[cand][field]);out.push(cand);
+  }
+  return out;
+}
+function buildQuiz(keys,mode){
+  keys=keys.filter(function(k){return !!WMAP[k];});
+  if(!keys.length)return [];
+  var uniq=[];for(var i=0;i<keys.length;i++){if(uniq.indexOf(keys[i])<0)uniq.push(keys[i]);}
+  shuffle(uniq);
+  var n=Math.min(12,uniq.length);
+  if(mode==='wrong')n=Math.min(12,uniq.length);
+  else if(uniq.length<12)n=uniq.length;
+  var chosen=uniq.slice(0,n), qs=[];
+  for(var j=0;j<chosen.length;j++){
+    var key=chosen[j], w=WMAP[key], type=j%3;
+    var q={key:key,type:type,en:w[0],cn:w[3],pos:w[2],phon:w[1],ex:w[4],excn:w[5]};
+    if(type===2){Q=null;}
+    if(type===0){
+      q.prompt=w[0];
+      var dis=distract(key,3,3);
+      q.options=[w[3]+' '+w[2]].concat(dis.map(function(k){return WMAP[k][3]+' '+WMAP[k][2];}));
+      q.correct=0;
+      var mix=[];for(var m=0;m<q.options.length;m++)mix.push(m);
+      shuffle(mix);
+      q.options=mix.map(function(i2){return q.options[i2];});
+      q.correct=mix.indexOf(0);
+    }else if(type===1){
+      q.prompt=w[3]+'（'+w[2]+'）';
+      var dis2=distract(key,3,0);
+      q.options=[w[0]].concat(dis2.map(function(k){return WMAP[k][0];}));
+      q.correct=0;
+      var mix2=[];for(var m2=0;m2<q.options.length;m2++)mix2.push(m2);
+      shuffle(mix2);
+      q.options=mix2.map(function(i3){return q.options[i3];});
+      q.correct=mix2.indexOf(0);
+    }else{
+      q.prompt=null;
+      q.blank=makeBlank(w[4]||'',w[0]);
+    }
+    qs.push(q);
+  }
+  return qs;
+}
+function makeBlank(ex,word){
+  try{
+    var re=new RegExp('\\b'+word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','gi');
+    if(re.test(ex))return ex.replace(re,'______');
+  }catch(e){}
+  return '';
+}
+function startQuiz(){
+  var plan=ensurePlan();
+  var keys=plan.news.slice(0,plan.posNew).concat(plan.rev.slice(0,plan.posRev));
+  var learnedToday=Object.keys(DB.words).filter(function(k){return DB.words[k].last===todayStr();});
+  keys=keys.concat(learnedToday);
+  if(!keys.length){
+    var allLearned=Object.keys(DB.words);
+    if(!allLearned.length){toast('先学几个单词再来测试吧');return;}
+    keys=allLearned;
+  }
+  var qs=buildQuiz(keys,'mix');
+  if(!qs.length){toast('还没有足够的单词，先去学几个');return;}
+  Q={list:qs,i:0,right:0,wrongKeys:[],answered:false,chosen:-1,typing:'',mode:'mix'};
+  view='quiz';render();
+}
+function quizHTML(){
+  if(!Q)return '<div class="card"><div class="empty">点下面开始今天的测试</div><button class="btn wide" onclick="startQuiz()">开始测试</button></div>';
+  if(Q.i>=Q.list.length)return quizResultHTML();
+  var q=Q.list[Q.i];
+  var h='<div class="card">';
+  h+='<div class="tagrow"><span class="tag quiz">第 '+(Q.i+1)+'/'+Q.list.length+' 题</span><span class="topic">'+(q.type===0?'看英文选中文':(q.type===1?'看中文选英文':'听中文写单词'))+'</span></div>';
+  if(q.type===0){
+    h+='<div class="qmain">'+q.en+'</div>';
+    if(DB.phon)h+='<div class="phon">'+q.phon+' <button class="spk" style="width:34px;height:34px;font-size:16px" onclick="speakWord()">🔊</button></div>';
+    h+='<div class="qtitle">选出正确的中文意思：</div>';
+    for(var i=0;i<q.options.length;i++){
+      var cls='opt';
+      if(Q.answered){if(i===q.correct)cls='opt ok';else if(i===Q.chosen)cls='opt no';}
+      h+='<button class="'+cls+'" onclick="pickOpt('+i+')" '+(Q.answered?'disabled':'')+'>'+q.options[i]+'</button>';
+    }
+  }else if(q.type===1){
+    h+='<div class="qmain" style="font-size:22px">'+q.prompt+'</div>';
+    h+='<div class="qtitle">选出正确的英文单词：</div>';
+    for(var i4=0;i4<q.options.length;i4++){
+      var cls4='opt';
+      if(Q.answered){if(i4===q.correct)cls4='opt ok';else if(i4===Q.chosen)cls4='opt no';}
+      h+='<button class="'+cls4+' option-en" onclick="pickOpt('+i4+')" '+(Q.answered?'disabled':'')+'>'+q.options[i4]+'</button>';
+    }
+  }else{
+    h+='<div class="qmain" style="font-size:19px">'+q.cn+' <span style="font-size:13px;color:#9aa5be">'+q.pos+'</span></div>';
+    if(q.blank)h+='<div class="ex" style="font-size:17px;text-align:center">'+q.blank+'</div>';
+    h+='<div class="excn" style="text-align:center;margin-top:8px">'+q.excn+'</div>';
+    h+='<div style="margin-top:14px"><input class="spell" id="spellinput" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="在这里输入英文单词" value="'+(Q.answered?Q.typing:'')+'" '+(Q.answered?'disabled':'')+' onkeydown="if(event.key===\'Enter\')submitSpell()"></div>';
+    if(!Q.answered)h+='<div class="actions"><button class="btn wide" onclick="submitSpell()">提交答案</button></div>';
+  }
+  if(Q.answered){
+    var ok=(Q.answered==='ok');
+    h+='<div class="fb '+(ok?'ok':'no')+'">'+(ok?'✅ 答对了！':'❌ 正确答案：<b>'+q.en+'</b>（'+q.cn+'）')+'</div>';
+    if(q.ex)h+='<div class="ex" style="margin-top:10px">'+hi(q.ex,q.en)+'<div class="excn">'+q.excn+'</div></div>';
+    h+='<div class="actions"><button class="btn wide" onclick="nextQ()">'+(Q.i+1>=Q.list.length?'看结果':'下一题')+'</button></div>';
+  }
+  h+='</div>';
+  return h;
+}
+function speakWord(){
+  if(!Q)return;var q=Q.list[Q.i];if(!q)return;speakText(q.en,0.86);
+}
+function pickOpt(i){
+  if(!Q||Q.answered)return;
+  var q=Q.list[Q.i];var ok=(i===q.correct);
+  Q.chosen=i;
+  finishOne(ok);
+  render();
+}
+function submitSpell(){
+  if(!Q||Q.answered)return;
+  var inp=document.getElementById('spellinput');
+  var val=inp?inp.value:'';
+  Q.typing=val;
+  var q=Q.list[Q.i];
+  var ok=(norm(val)===norm(q.en));
+  if(q.blank===''&&norm(val)===norm(q.en))ok=true;
+  finishOne(ok);render();
+}
+function norm(s){return (s||'').toLowerCase().replace(/[^a-z]/g,'');}
+function finishOne(ok){
+  var q=Q.list[Q.i];
+  Q.answered=ok?'ok':'no';
+  if(ok){Q.right++;}else{Q.wrongKeys.push(q.key);}
+  applyResult(q.key,ok?1:0);
+  var plan=ensurePlan();
+  plan.totalN=(plan.totalN||0)+1;
+  if(ok)plan.rightN=(plan.rightN||0)+1;
+  save();
+}
+function nextQ(){
+  if(!Q)return;
+  Q.i++;Q.answered=false;Q.chosen=-1;Q.typing='';
+  if(Q.i>=Q.list.length){
+    var plan=ensurePlan();plan.quizDone=true;markLog('quizDone');
+  }
+  render();
+}
+function quizResultHTML(){
+  var rate=Q.list.length?Math.round(Q.right/Q.list.length*100):0;
+  var h='<div class="card"><div class="bigresult"><div class="num">'+rate+'%</div>';
+  h+='<div style="color:#7d89a6;font-size:14px">共 '+Q.list.length+' 题，答对 '+Q.right+' 题</div></div>';
+  if(Q.wrongKeys.length){
+    h+='<div style="margin-top:14px;font-weight:700;color:#c0392b">要重点看这几词：</div><div class="wronglist">';
+    for(var i=0;i<Q.wrongKeys.length;i++){
+      var w=WMAP[Q.wrongKeys[i]];
+      h+='<div class="wrow"><div class="wleft"><b>'+w[0]+'</b> <span style="display:inline;font-size:12px;color:#9aa5be">'+w[1]+'</span><span>'+w[2]+' '+w[3]+'</span></div></div>';
+    }
+    h+='</div>';
+  }else{
+    h+='<div class="fb ok" style="margin-top:14px">全对！很棒，继续保持 💪</div>';
+  }
+  h+='<div class="actions"><button class="btn wide" onclick="'+(Q.wrongKeys.length?'startWrongDrill()':'startQuiz()')+'">'+ (Q.wrongKeys.length?'立即重练错题':'再测一次')+'</button></div>';
+  h+='<div class="actions"><button class="btn ghost sm" onclick="go(\'home\')">回首页</button><button class="btn ghost sm" onclick="go(\'stat\')">看统计</button></div>';
+  h+='</div>';
+  return h;
+}
+
+/* ---------- 听写 ---------- */
+function esc(s){
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function sameSentence(a,b){
+  function ws(s){
+    return (s||'').toLowerCase().replace(/[^a-z' ]/g,' ').split(/\s+/).filter(function(x){return x.length>0;});
+  }
+  var A=ws(a),B=ws(b);
+  if(!A.length||!B.length)return false;
+  var bad=Math.abs(A.length-B.length);
+  var n=Math.min(A.length,B.length);
+  for(var i=0;i<n;i++){ if(A[i]!==B[i])bad++; }
+  var allow=Math.max(1,Math.floor(B.length*0.25));
+  return bad<=allow;
+}
+function dictPool(){
+  var plan=ensurePlan();
+  var keys=plan.news.slice(0,plan.posNew).concat(plan.rev.slice(0,plan.posRev));
+  var all=Object.keys(DB.words);
+  for(var i=0;i<all.length;i++){ if(DB.words[all[i]].last===todayStr()&&keys.indexOf(all[i])<0)keys.push(all[i]); }
+  var uniq=[];
+  for(var j=0;j<keys.length;j++){ if(uniq.indexOf(keys[j])<0&&WMAP[keys[j]])uniq.push(keys[j]); }
+  if(!uniq.length)uniq=all.filter(function(k){return !!WMAP[k];});
+  return uniq;
+}
+function startDictate(mode){
+  var pool=dictPool();
+  if(!pool.length){toast('先学几个单词再来听写');return;}
+  var list=pool.slice();
+  shuffle(list);
+  if(mode==='sentence'){ list=list.filter(function(k){return WMAP[k]&&WMAP[k][4];}); }
+  if(!list.length){toast('这组词还没有例句，先做单词听写吧');return;}
+  var n=Math.min(mode==='sentence'?8:10,list.length);
+  DT={mode:mode,list:list.slice(0,n),i:0,right:0,wrongKeys:[],answered:false,typing:''};
+  view='dict';render();
+  setTimeout(function(){dictPlay();},120);
+}
+function dictPlay(){
+  if(!DT)return;
+  var k=DT.list[DT.i]; if(!k)return;
+  var w=WMAP[k]; if(!w)return;
+  if(DT.mode==='sentence')speakText(w[4],0.74);
+  else speakText(w[0],0.8);
+}
+function dictHTML(){
+  if(!DT){
+    return '<div class="card"><div class="empty">选择一种听写方式</div><div class="actions"><button class="btn wide" onclick="startDictate(\'word\')">🎧 单词听写（听音写单词）</button></div><div class="actions"><button class="btn ghost sm" onclick="startDictate(\'sentence\')">🎧 句子听写（听句写整句）</button></div></div>';
+  }
+  if(DT.i>=DT.list.length)return dictResultHTML();
+  var key=DT.list[DT.i],w=WMAP[key];
+  var h='<div class="card">';
+  h+='<div class="tagrow"><span class="tag quiz">'+(DT.mode==='sentence'?'句子听写':'单词听写')+' '+(DT.i+1)+'/'+DT.list.length+'</span><span class="topic">'+(DT.mode==='sentence'?'听整句，写整句':'听发音，写单词')+'</span></div>';
+  h+='<button class="spk" style="width:88px;height:88px;font-size:38px;display:block;margin:6px auto" onclick="dictPlay()">🔊</button>';
+  h+='<div class="hint" style="margin:2px 0 14px">没听清就再点喇叭，可以反复听</div>';
+  if(DT.mode==='sentence'){
+    h+='<textarea class="spellarea" id="dictinput" placeholder="把听到的句子写下来" '+(DT.answered?'disabled':'')+' onkeydown="if(event.key===\'Enter\'&&!event.shiftKey){event.preventDefault();dictSubmit();}">'+(DT.answered?esc(DT.typing):'')+'</textarea>';
+  }else{
+    h+='<input class="spell" id="dictinput" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="在这里写单词" value="'+(DT.answered?esc(DT.typing):'')+'" '+(DT.answered?'disabled':'')+' onkeydown="if(event.key===\'Enter\'){event.preventDefault();dictSubmit();}">';
+  }
+  if(!DT.answered){ h+='<div class="actions"><button class="btn wide" onclick="dictSubmit()">提交</button></div>'; }
+  else{
+    var ok=(DT.answered==='ok');
+    var right=(DT.mode==='sentence'?(w[4]||w[0]):w[0]);
+    h+='<div class="fb '+(ok?'ok':'no')+'">'+(ok?'✅ 写得对！':'❌ 正确写法：<b>'+esc(right)+'</b>')+'</div>';
+    if(DT.mode==='sentence'){ h+='<div class="excn" style="text-align:center;margin-top:6px">'+esc(w[5]||'')+'</div>'; }
+    else if(w[4]){ h+='<div class="ex" style="margin-top:10px">'+hi(w[4],w[0])+'<div class="excn">'+w[5]+'</div></div>'; }
+    h+='<div class="actions"><button class="btn wide" onclick="dictNext()">'+(DT.i+1>=DT.list.length?'看结果':'下一个')+'</button></div>';
+  }
+  h+='</div>';
+  return h;
+}
+function dictSubmit(){
+  if(!DT||DT.answered)return;
+  var inp=document.getElementById('dictinput');
+  var val=inp?inp.value:'';
+  DT.typing=val;
+  var key=DT.list[DT.i],w=WMAP[key],ok;
+  if(DT.mode==='sentence')ok=sameSentence(val,w[4]);
+  else ok=(norm(val)===norm(w[0]));
+  DT.answered=ok?'ok':'no';
+  if(ok)DT.right++; else DT.wrongKeys.push(key);
+  applyResult(key,ok?1:0);
+  render();
+}
+function dictNext(){
+  if(!DT)return;
+  DT.i++;DT.answered=false;DT.typing='';
+  render();
+  if(DT.i<DT.list.length)setTimeout(function(){dictPlay();},120);
+}
+function dictResultHTML(){
+  var rate=DT.list.length?Math.round(DT.right/DT.list.length*100):0;
+  var h='<div class="card"><div class="bigresult"><div class="num">'+rate+'%</div>';
+  h+='<div style="color:#7d89a6;font-size:14px">听写 '+(DT.mode==='sentence'?'句子':'单词')+' '+DT.list.length+' 个，写对 '+DT.right+' 个</div></div>';
+  if(DT.wrongKeys.length){
+    h+='<div style="margin-top:14px;font-weight:700;color:#c0392b">写错的，建议抄一遍：</div><div class="wronglist">';
+    for(var i=0;i<DT.wrongKeys.length;i++){
+      var w=WMAP[DT.wrongKeys[i]];
+      h+='<div class="wrow"><div class="wleft"><b>'+w[0]+'</b><span>'+w[2]+' '+w[3]+'</span></div></div>';
+    }
+    h+='</div>';
+  }else{
+    h+='<div class="fb ok" style="margin-top:14px">全对！听力和拼写都过关 💪</div>';
+  }
+  h+='<div class="actions"><button class="btn wide" onclick="startDictate(\''+DT.mode+'\')">再听写一轮</button></div>';
+  h+='<div class="actions"><button class="btn ghost sm" onclick="startDictate(\''+(DT.mode==='sentence'?'word':'sentence')+'\')">换成'+(DT.mode==='sentence'?'单词听写':'句子听写')+'</button><button class="btn ghost sm" onclick="go(\'home\')">回首页</button></div>';
+  h+='</div>';
+  return h;
+}
+
+/* ---------- 错词本 ---------- */
+function wrongKeysList(){
+  var a=[];
+  for(var k in DB.words){if(DB.words[k].bad>0)a.push(k);}
+  a.sort(function(x,y){return DB.words[y].bad-DB.words[x].bad;});
+  return a;
+}
+function wrongHTML(){
+  var keys=wrongKeysList();
+  var h='<div class="card">';
+  if(!keys.length){
+    h+='<div class="empty">还没有错词，很棒 👏</div>';
+  }else{
+    h+='<div class="tagrow"><span class="tag rev">错词 '+keys.length+' 个</span><span class="topic">答对一次就减少一个错误标记</span></div>';
+    h+='<div class="wronglist">';
+    for(var i=0;i<keys.length;i++){
+      var w=WMAP[keys[i]];var r=DB.words[keys[i]];
+      h+='<div class="wrow"><div class="wleft"><b>'+w[0]+'</b> <span style="display:inline;font-size:12px;color:#9aa5be">'+w[1]+'</span><span>'+w[2]+' '+w[3]+'　错 '+r.bad+' 次</span></div>';
+      h+='<button class="spk" onclick="speakK(\''+keys[i]+'\')">🔊</button></div>';
+    }
+    h+='</div>';
+    h+='<div class="actions"><button class="btn wide" onclick="startWrongDrill()">✏️ 开始错词专项练习</button></div>';
+  }
+  h+='</div>';
+  return h;
+}
+function speakK(k){var w=WMAP[k];if(w)speakText(w[0],0.86);}
+function startWrongDrill(){
+  var keys=wrongKeysList();
+  if(!keys.length){toast('现在没有错词，去打测试吧');return;}
+  var qs=buildQuiz(keys,'wrong');
+  Q={list:qs,i:0,right:0,wrongKeys:[],answered:false,chosen:-1,typing:'',mode:'wrong'};
+  view='quiz';render();
+}
+
+/* ---------- 统计 ---------- */
+function statHTML(){
+  var learned=Object.keys(DB.words).length;
+  var mastered=0,learning=0;
+  for(var k in DB.words){if(DB.words[k].s>=4)mastered++;else learning++;}
+  var total=WORDS.length;
+  var streak=calcStreak();
+  var days=Object.keys(DB.logs).length;
+  var todayN=DB.words&&Object.keys(DB.words).filter(function(k2){return DB.words[k2].last===todayStr();}).length;
+  var h='';
+  h+='<div class="statgrid">';
+  h+='<div class="stat"><b>'+learned+'</b><span>已学单词（共 '+total+'）</span></div>';
+  h+='<div class="stat"><b>'+mastered+'</b><span>已掌握（能熟练想起）</span></div>';
+  h+='<div class="stat"><b>'+streak+'</b><span>连续打卡天数</span></div>';
+  h+='<div class="stat"><b>'+days+'</b><span>累计学习天数</span></div>';
+  h+='</div>';
+
+  h+='<div class="card"><div class="tagrow"><span class="tag">最近 30 天</span><span class="topic">颜色越深，当天完成得越好</span></div><div class="heat">';
+  for(var i=29;i>=0;i--){
+    var d=addDays(todayStr(),-i);
+    var l=DB.logs[d];
+    var cls='hcell';
+    if(l&&l.newDone)cls+=' l3';
+    else if(l&&(l.revDone||l.quizDone))cls+=' l2';
+    else if(l)cls+=' l1';
+    if(i===0)cls+=' today';
+    h+='<div class="'+cls+'" title="'+d+'">'+parseD(d).getDate()+'</div>';
+  }
+  h+='</div></div>';
+
+  h+='<div class="card"><div class="tagrow"><span class="tag">30 个词包进度</span><span class="topic">每天一个词包</span></div><div class="packlist">';
+  for(var p=0;p<30;p++){
+    var s=p*20,e=Math.min(WORDS.length,s+20),c=0;
+    for(var j=s;j<e;j++){var kk=WORDS[j][0].toLowerCase();if(DB.words[kk])c++;}
+    var pct=Math.round(c/((e-s)||1)*100);
+    h+='<div class="pk"><span class="nm">'+(p+1)+'. '+(TOPICS[p]||'')+'</span><span class="pb"><i style="width:'+pct+'%"></i></span><span class="n">'+c+'/'+(e-s)+'</span></div>';
+  }
+  h+='</div></div>';
+  return h;
+}
+
+/* ---------- 设置 ---------- */
+function setHTML(){
+  var h='<div class="card">';
+  h+='<div class="srow"><div class="lb">每天新学词数<span class="ds">建议 20 个，时间紧可以调到 15</span></div><div class="seg">';
+  var opts=[10,15,20,25,30];
+  for(var i=0;i<opts.length;i++){
+    h+='<button class="'+(DB.daily===opts[i]?'on':'')+'" onclick="setDaily('+opts[i]+')">'+opts[i]+'</button>';
+  }
+  h+='</div></div>';
+  h+='<div class="srow"><div class="lb">自动发音<span class="ds">浏览器没有内置语音时会自动改用在线发音（需要联网）</span></div><button class="switch '+(DB.speak?'on':'')+'" onclick="toggleOpt(\'speak\')"><i></i></button></div>';
+  h+='<div class="srow"><div class="lb">显示音标<span class="ds">关闭后卡片更简洁</span></div><button class="switch '+(DB.phon?'on':'')+'" onclick="toggleOpt(\'phon\')"><i></i></button></div>';
+  h+='</div>';
+
+  h+='<div class="card"><div class="tagrow"><span class="tag">数据备份</span><span class="topic">换电脑/重装浏览器前先导出</span></div>';
+  h+='<div class="actions"><button class="btn ghost sm" onclick="exportData()">⬇️ 导出进度</button><button class="btn ghost sm" onclick="importPick()">⬆️ 导入进度</button></div>';
+  h+='<input type="file" id="fileinput" accept=".json" style="display:none" onchange="importFile(this)">';
+  h+='<div class="footnote" style="text-align:left;padding-top:10px">词库：小学 3–6 年级核心词汇 + 小升初衔接词汇，共 '+WORDS.length+' 词，30 天一个循环。</div>';
+  h+='</div>';
+  h+='<div class="card"><div class="srow" style="border:none"><div class="lb">清空全部进度<span class="ds">谨慎操作，清空后不可恢复</span></div><button class="btn bad sm" onclick="resetAll()">清空</button></div></div>';
+  return h;
+}
+function setDaily(n){DB.daily=n;save();toast('已设为每天 '+n+' 词');render();}
+function toggleOpt(k){DB[k]=!DB[k];save();render();}
+function exportData(){
+  try{
+    var data=JSON.stringify(DB);
+    var blob=new Blob([data],{type:'application/json'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='背单词进度_'+todayStr()+'.json';
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);
+    toast('已导出');
+  }catch(e){toast('导出失败，可换 Chrome 试试');}
+}
+function importPick(){document.getElementById('fileinput').click();}
+function importFile(inp){
+  var f=inp.files&&inp.files[0];if(!f)return;
+  var fr=new FileReader();
+  fr.onload=function(){
+    try{
+      var o=JSON.parse(fr.result);
+      if(!o||!o.words)throw 0;
+      DB=Object.assign(defaultDB(),o);
+      save();toast('导入成功');render();
+    }catch(e){toast('文件格式不对，导入失败');}
+  };
+  fr.readAsText(f,'utf-8');
+}
+function resetAll(){
+  if(!confirm('确定清空全部进度吗？这个操作不能撤销。'))return;
+  DB=defaultDB();save();toast('已清空');go('home');
+}
+
+/* ---------- 键盘 ---------- */
+document.addEventListener('keydown',function(e){
+  if(e.defaultPrevented)return;
+  if(view==='study'&&S){
+    if(e.key===' '){e.preventDefault();if(!S.flipped)flipCard();}
+    else if(e.key==='1'){answer(0);}
+    else if(e.key==='2'){answer(1);}
+  }
+  if(view==='dict'&&DT&&DT.answered&&e.key==='Enter'){e.preventDefault();dictNext();return;}
+  if(view==='quiz'&&Q&&Q.answered&&e.key==='Enter'){e.preventDefault();nextQ();return;}
+});
+if(voiceOK&&window.speechSynthesis){
+  try{window.speechSynthesis.onvoiceschanged=function(){};}catch(e){}
+}
+
+/* ---------- 启动 ---------- */
+DB=loadDB();
+if(!DB.plans)DB.plans={};
+if(!DB.logs)DB.logs={};
+storageOK=checkStorage();
+render();
+</script>
+</body>
+</html>
