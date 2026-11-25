@@ -89,6 +89,15 @@ textarea.spellarea:focus{border-color:#5b7cfa;box-shadow:0 0 0 3px rgba(91,124,2
 .wleft span{display:block;font-size:13px;color:#8792ac}
 .empty{text-align:center;color:#9aa5be;padding:26px 10px;font-size:15px}
 .warn{background:#fff6e5;color:#a06000;border:1px solid #ffe2b0;border-radius:16px;padding:12px 14px;font-size:14px;line-height:1.55;margin-bottom:14px}
+.tag.unit{background:#f3ecff;color:#7a4fd0}
+.ucard{background:#fff;border-radius:18px;padding:14px 16px;box-shadow:0 8px 20px rgba(74,95,160,.09);margin-bottom:12px}
+.ucard.cur{border-left:5px solid #7a4fd0}
+.uhead{font-size:16px;color:#3b4a6b}
+.uhead b{color:#4f6bea}
+.uhead .ut{font-weight:700}
+.ucn{font-size:13px;color:#8f9ab3;margin-top:2px}
+.ubtn{display:flex;gap:8px;margin-top:10px}
+.ubtn .btn{flex:1;padding:10px 0;font-size:13px}
 @media (max-width:660px){ .kb{display:none!important} .word{font-size:32px} .cn{font-size:20px} }
 .statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:14px}
 .stat{background:#fff;border-radius:16px;padding:14px;box-shadow:0 6px 18px rgba(74,95,160,.08)}
@@ -146,11 +155,14 @@ var WORDS = [["pen","/pen/","n.","钢笔","This is my pen.","这是我的钢笔�
 var TOPICS = ['文具与教室','颜色与形状','身体部位','农场动物','野生动物','食物与饮料','水果和蔬菜','数字与时间','家人与称呼','家居与房间','衣物','天气与季节','学校与场所','交通与出行','日常动作①','日常动作②','学习与校园','描写人的形容词','常用形容词','星期与时间','月份与时间词','运动与爱好','家务与劳动','职业','情感与感受','自然与地理','高频动词','抽象形容词','频度与副词','高频名词',
  '补漏·数字与三餐','补漏·衣物与鞋帽','补漏·场所与方向','补漏·六上词汇','补漏·比较级','补漏·身体健康','补漏·人物与国家','补漏·餐具与玩具',
  '初一·问候与介绍','初一·家庭与物品','初一·学科与课程','初一·喜好与活动','初一·食物与健康','初一·作息与时间','初一·方位与距离'];
+var UNITS = {"vers":[{"k":"新","n":"新教材"},{"k":"老","n":"老教材"}],"books":[{"id":"x6s","ver":"新","name":"六年级上册","verName":"新教材（2026 新版 PEP）","units":[{"u":"Unit 1","t":"Amazing places","cn":"令人惊叹的地方","words":["was","climb","kilometre","send","went","thousand","clay","saw","village","ate","dry","took","view","inspiring","bamboo","pumpkin","restaurant","airport","famous","amazing","special","wonderful","interesting","great"]},{"u":"Unit 2","t":"Getting together","cn":"聚在一起","words":["writer","read","made","sing","sang","wear","wore","yesterday","notice","wake","woke","later","judge","begin","began","win","won","winner","ever","exciting"]},{"u":"Unit 3","t":"Healthy life","cn":"健康生活","words":["cold","ill","head","fever","cough","discuss","diet","cry","another","call","email","unhappy","glass","may","add","video","better","health","lifestyle","exercise","physical","mental","social"]},{"u":"Unit 4","t":"Managing money well","cn":"管好钱","words":["money","schoolbag","goods","drink","service","haircut","microscope","lucky","sale","ticket","spend","buy","need","want","expensive","cheap","careful","wise","plan","bank"]},{"u":"Unit 5","t":"Exploring space","cn":"探索太空","words":["earth","sky","cloud","moon","star","planet","satellite","astronaut","spaceship","rover","alien","telescope","soil","water","air","day","night","sunrise","sunset","solar","warmth","light"]},{"u":"Unit 6","t":"Energy, nature and us","cn":"能源、自然与我们","words":["energy","electricity","power","resource","solar","wind","water","heat","cool","light","change","reduce","reuse","recycle","drive","shower","bottle","jar","market","side","dirty","useful","save","waste","planet","nature","environment"]}]},{"id":"l6s","ver":"老","name":"六年级上册","verName":"老教材（PEP 三年级起点）","units":[{"u":"Unit 1","t":"How can I get there?","cn":"怎么到那儿","words":["science","museum","bookstore","cinema","hospital","crossing","turn","left","right","straight","interesting","italian","restaurant","pizza","street","feature","far","follow","tell"]},{"u":"Unit 2","t":"Ways to go to school","cn":"上学的方式","words":["bus","plane","taxi","ship","subway","train","slow","down","stop","helmet","traffic","must","wear","early","fast","ferry","sled","attention"]},{"u":"Unit 3","t":"My weekend plan","cn":"我的周末计划","words":["film","trip","supermarket","dictionary","word","postcard","visit","comic","evening","tonight","tomorrow","lesson","space","half","price","poem","moon","together","travel"]},{"u":"Unit 4","t":"I have a pen pal","cn":"我有一个笔友","words":["puzzle","hiking","studies","hobby","idea","club","join","share","amazing","goal","jasmine","dancing","singing"]},{"u":"Unit 5","t":"What does he do?","cn":"他是做什么的","words":["factory","worker","postman","businessman","fisherman","scientist","pilot","coach","country","university","gym","reporter","secretary","type","quickly","sea","stay"]},{"u":"Unit 6","t":"How do you feel?","cn":"你感觉怎么样","words":["angry","afraid","sad","worried","happy","more","deep","breath","mice","grass","ant","mud","everyone","chase","hurt","should","feel","hear","worry","pull","ill","wrong","bad","well"]}]},{"id":"l6x","ver":"老","name":"六年级下册","verName":"老教材（PEP 三年级起点）","units":[{"u":"Unit 1","t":"How tall are you?","cn":"你多高","words":["taller","shorter","stronger","older","younger","bigger","heavier","longer","thinner","smaller","funnier","than","both","kilogram","metre","hall","dinosaur","size","become"]},{"u":"Unit 2","t":"Last weekend","cn":"上个周末","words":["clean","stay","wash","watch","sleep","read","saw","played","washed","watched","had","slept","worse","better","cold","sore","magazine"]},{"u":"Unit 3","t":"Where did you go?","cn":"你去了哪里","words":["went","camp","ate","took","bought","rode","fell","mule","delicious","beach","dictionary"]},{"u":"Unit 4","t":"Then and now","cn":"过去和现在","words":["before","ago","cycling","grass","gym","badminton","could"]}]}]};
+var EXTRA = [["was","/wɒz/","v.","（be 的过去式）是","He was at home yesterday.","他昨天在家。"],["climb","/klaɪm/","v.","攀登；爬","We climb the hill every Sunday.","我们每周日爬山。"],["kilometre","/ˈkɪləmiːtə/","n.","千米；公里","The school is two kilometres away.","学校离这儿两公里。"],["send","/send/","v.","邮寄；发送","I send a card to my friend.","我给朋友寄一张卡片。"],["went","/went/","v.","（go 的过去式）去","We went to the park last Sunday.","上周日我们去了公园。"],["clay","/kleɪ/","n.","黏土；陶土","He makes a cup with clay.","他用黏土做一个杯子。"],["saw","/sɔː/","v.","（see 的过去式）看见","I saw a bird in the tree.","我看见树上有一只鸟。"],["ate","/eɪt/","v.","（eat 的过去式）吃","I ate two eggs this morning.","今天早上我吃了两个鸡蛋。"],["dry","/draɪ/","adj.","干的","The clothes are dry now.","衣服现在干了。"],["took","/tʊk/","v.","（take 的过去式）拿；带","She took a photo of the lake.","她拍了一张湖的照片。"],["view","/vjuː/","n.","景色","The view from the hill is beautiful.","从山上看到的景色很美。"],["inspiring","/ɪnˈspaɪərɪŋ/","adj.","鼓舞人心的","His story is inspiring.","他的故事很鼓舞人心。"],["bamboo","/ˈbæmbuː/","n.","竹子","Pandas eat bamboo.","熊猫吃竹子。"],["pumpkin","/ˈpʌŋkɪn/","n.","南瓜","We make a lantern with a pumpkin.","我们用南瓜做灯笼。"],["amazing","/əˈmeɪzɪŋ/","adj.","令人惊奇的","The show is amazing.","这场演出令人惊叹。"],["great","/ɡreɪt/","adj.","很好的","We had a great time.","我们玩得很开心。"],["made","/meɪd/","v.","（make 的过去式）做","I made a card for my mum.","我给妈妈做了一张卡片。"],["sang","/sæŋ/","v.","（sing 的过去式）唱","We sang songs at the party.","我们在聚会上唱歌。"],["wore","/wɔː/","v.","（wear 的过去式）穿；戴","She wore a red dress.","她穿了一条红裙子。"],["notice","/ˈnəʊtɪs/","n.","通知；告示","I see a notice on the wall.","我看到墙上有一张通知。"],["woke","/wəʊk/","v.","（wake 的过去式）醒","I woke up at six.","我六点醒来。"],["later","/ˈleɪtə/","adv.","随后；后来","I will call you later.","我稍后给你打电话。"],["judge","/dʒʌdʒ/","n.","裁判","The judge is fair.","裁判很公平。"],["began","/bɪˈɡæn/","v.","（begin 的过去式）开始","The film began at seven.","电影七点开始。"],["won","/wʌn/","v.","（win 的过去式）获胜","Our team won the game.","我们队赢了比赛。"],["winner","/ˈwɪnə/","n.","获胜者","He is the winner of the race.","他是赛跑的获胜者。"],["discuss","/dɪˈskʌs/","v.","讨论","We discuss the plan in class.","我们在课上讨论这个计划。"],["cry","/kraɪ/","v.","哭；哭泣","The baby cries at night.","宝宝夜里哭。"],["another","/əˈnʌðə/","adj.","另一个","Please give me another pen.","请再给我一支笔。"],["call","/kɔːl/","v.","打电话","I call my grandma every week.","我每周给奶奶打电话。"],["email","/ˈiːmeɪl/","n.","电子邮件","I write an email to my teacher.","我给老师写一封电子邮件。"],["unhappy","/ʌnˈhæpi/","adj.","不快乐的；难过的","He looks unhappy today.","他今天看起来不开心。"],["add","/æd/","v.","补充说；增加","Please add some sugar.","请加些糖。"],["video","/ˈviːdiəʊ/","n.","视频","We watch a video about space.","我们看一个关于太空的视频。"],["better","/ˈbetə/","adj.","更好的；好转的","You look better today.","你今天看起来好多了。"],["lifestyle","/ˈlaɪfstaɪl/","n.","生活方式","A healthy lifestyle is important.","健康的生活方式很重要。"],["physical","/ˈfɪzɪkl/","adj.","身体的","We do physical exercise every day.","我们每天做体育锻炼。"],["mental","/ˈmentl/","adj.","心理的","Reading is good for mental health.","阅读对心理健康有好处。"],["social","/ˈsəʊʃl/","adj.","社会的；社交的","She has many social activities.","她有很多社交活动。"],["money","/ˈmʌni/","n.","钱","I save my money in a piggy bank.","我把钱存进储蓄罐。"],["goods","/ɡʊdz/","n.","商品","The shop sells many goods.","这家店卖很多商品。"],["drink","/drɪŋk/","n.","饮料","I want a cold drink.","我想要一杯冷饮。"],["service","/ˈsɜːvɪs/","n.","服务","The service here is good.","这里的服务很好。"],["haircut","/ˈheəkʌt/","n.","理发","I get a haircut every month.","我每个月理一次发。"],["microscope","/ˈmaɪkrəskəʊp/","n.","显微镜","We look at the leaf under a microscope.","我们在显微镜下看树叶。"],["lucky","/ˈlʌki/","adj.","幸运的","You are lucky to win.","你真幸运赢了。"],["sale","/seɪl/","n.","特价销售","The shoes are on sale today.","鞋子今天特价。"],["expensive","/ɪkˈspensɪv/","adj.","昂贵的","This bag is too expensive.","这个包太贵了。"],["cheap","/tʃiːp/","adj.","便宜的","The pen is cheap.","这支笔很便宜。"],["wise","/waɪz/","adj.","明智的","It is a wise choice.","这是个明智的选择。"],["earth","/ɜːθ/","n.","地球","The earth goes around the sun.","地球绕着太阳转。"],["moon","/muːn/","n.","月亮","The moon is bright tonight.","今晚月亮很亮。"],["planet","/ˈplænɪt/","n.","行星","Mars is the red planet.","火星是红色行星。"],["satellite","/ˈsætəlaɪt/","n.","人造卫星","The satellite sends us photos.","卫星给我们发照片。"],["astronaut","/ˈæstrənɔːt/","n.","宇航员","The astronaut walks in space.","宇航员在太空中行走。"],["spaceship","/ˈspeɪsʃɪp/","n.","宇宙飞船","The spaceship flies to the moon.","宇宙飞船飞向月球。"],["rover","/ˈrəʊvə/","n.","探测器","The rover works on Mars.","探测器在火星上工作。"],["alien","/ˈeɪliən/","n.","外星生物","The film is about aliens.","这部电影是关于外星人的。"],["telescope","/ˈtelɪskəʊp/","n.","望远镜","We look at stars with a telescope.","我们用望远镜看星星。"],["soil","/sɔɪl/","n.","土壤","Plants grow in soil.","植物在土壤里生长。"],["air","/eə/","n.","空气","We need clean air.","我们需要干净的空气。"],["solar","/ˈsəʊlə/","adj.","太阳的","Solar energy is clean.","太阳能是清洁的。"],["warmth","/wɑːmθ/","n.","温暖","The sun gives us warmth.","太阳给我们温暖。"],["electricity","/ɪˌlekˈtrɪsəti/","n.","电","We use electricity every day.","我们每天用电。"],["power","/ˈpaʊə/","n.","能；能量","Wind power is green.","风能是绿色的。"],["resource","/rɪˈsɔːs/","n.","资源","Water is an important resource.","水是重要的资源。"],["heat","/hiːt/","n.","热量","The sun gives heat.","太阳提供热量。"],["reduce","/rɪˈdjuːs/","v.","减少","We should reduce waste.","我们应该减少浪费。"],["reuse","/ˌriːˈjuːz/","v.","再次使用","We can reuse the bottle.","我们可以再次使用这个瓶子。"],["recycle","/ˌriːˈsaɪkl/","v.","回收利用","We recycle old paper.","我们回收旧纸。"],["jar","/dʒɑː/","n.","罐子","There is a jar of honey.","有一罐蜂蜜。"],["market","/ˈmɑːkɪt/","n.","集市","Mum buys fish at the market.","妈妈在集市买鱼。"],["side","/saɪd/","n.","一面；一边","Write on both sides of the paper.","纸的两面都写字。"],["dirty","/ˈdɜːti/","adj.","脏的","My shoes are dirty.","我的鞋很脏。"],["save","/seɪv/","v.","节约","Save water, please.","请节约用水。"],["waste","/weɪst/","v.","浪费","Don't waste food.","不要浪费食物。"],["italian","/ɪˈtæliən/","adj.","意大利的","I like Italian food.","我喜欢意大利食物。"],["feature","/ˈfiːtʃə/","n.","特点","Each animal has its feature.","每种动物都有自己的特点。"],["follow","/ˈfɒləʊ/","v.","跟着","Follow me, please.","请跟我走。"],["down","/daʊn/","adv.","向下；减少","Slow down at the crossing.","过路口要减速。"],["stop","/stɒp/","v.","停下","Stop at the red light.","红灯停。"],["helmet","/ˈhelmət/","n.","头盔","Wear a helmet when you ride.","骑车要戴头盔。"],["must","/mʌst/","v.","必须","You must wash your hands.","你必须洗手。"],["ferry","/ˈferi/","n.","轮渡","We go to the island by ferry.","我们坐轮渡去岛上。"],["sled","/sled/","n.","雪橇","Some kids go to school by sled.","有些孩子坐雪橇上学。"],["attention","/əˈtenʃn/","n.","注意","Pay attention to the traffic lights.","注意交通信号灯。"],["postcard","/ˈpɒstkɑːd/","n.","明信片","I send a postcard from Beijing.","我从北京寄一张明信片。"],["visit","/ˈvɪzɪt/","v.","拜访；参观","I visit my grandparents on Sunday.","我周日去看爷爷奶奶。"],["tonight","/təˈnaɪt/","adv.","在今晚","We will see a film tonight.","我们今晚看电影。"],["space","/speɪs/","n.","太空","He wants to travel in space.","他想去太空旅行。"],["price","/praɪs/","n.","价格","The price is too high.","价格太高了。"],["poem","/pəʊm/","n.","诗","I read a poem about the moon.","我读了一首关于月亮的诗。"],["puzzle","/ˈpʌzl/","n.","谜","He likes doing word puzzles.","他喜欢猜字谜。"],["studies","/ˈstʌdiz/","v.","（study 的第三人称）学习","He studies Chinese at school.","他在学校学中文。"],["goal","/ɡəʊl/","n.","射门；得分","He scored a goal.","他进了一个球。"],["jasmine","/ˈdʒæsmɪn/","n.","茉莉","The jasmine tea smells good.","茉莉花茶很香。"],["dancing","/ˈdænsɪŋ/","n.","跳舞","She likes dancing.","她喜欢跳舞。"],["singing","/ˈsɪŋɪŋ/","n.","唱歌","Singing makes me happy.","唱歌让我开心。"],["factory","/ˈfæktəri/","n.","工厂","My uncle works in a factory.","我叔叔在工厂工作。"],["fisherman","/ˈfɪʃəmən/","n.","渔民","The fisherman works at sea.","渔民在海上工作。"],["university","/ˌjuːnɪˈvɜːsəti/","n.","大学","My sister studies at a university.","我姐姐在大学读书。"],["reporter","/rɪˈpɔːtə/","n.","记者","The reporter asks many questions.","记者问了很多问题。"],["secretary","/ˈsekretəri/","n.","秘书","The secretary types letters.","秘书打信件。"],["type","/taɪp/","v.","打字","He can type very quickly.","他打字很快。"],["stay","/steɪ/","v.","保持；停留","Please stay at home.","请待在家里。"],["more","/mɔː/","adj.","更多的","I need more time.","我需要更多时间。"],["deep","/diːp/","adj.","深的","Take a deep breath.","深吸一口气。"],["breath","/breθ/","n.","呼吸","Take a deep breath and count to ten.","深呼吸，数到十。"],["mice","/maɪs/","n.","老鼠（mouse 的复数）","The cat chases the mice.","猫追老鼠。"],["mud","/mʌd/","n.","泥","His shoes are covered with mud.","他的鞋上全是泥。"],["everyone","/ˈevriwʌn/","pron.","每个人","Everyone is here.","大家都到了。"],["chase","/tʃeɪs/","v.","追赶","The dog chases the cat.","狗追猫。"],["should","/ʃʊd/","v.","应该","You should see a doctor.","你应该看医生。"],["feel","/fiːl/","v.","觉得；感到","I feel happy today.","我今天觉得开心。"],["hear","/hɪə/","v.","听见","I hear a bird singing.","我听见鸟在唱歌。"],["worry","/ˈwʌri/","v.","担心","Don't worry about me.","别为我担心。"],["pull","/pʊl/","v.","拉；拽","Pull the door, please.","请拉门。"],["wrong","/rɒŋ/","adj.","有毛病的；错误的","There is something wrong with my bike.","我的车有点毛病。"],["bad","/bæd/","adj.","坏的","Smoking is bad for you.","吸烟对你不好。"],["well","/wel/","adj.","身体好","I feel well today.","我今天身体很好。"],["funnier","/ˈfʌniə/","adj.","更滑稽的","This book is funnier.","这本书更有趣。"],["metre","/ˈmiːtə/","n.","米","The room is five metres long.","这房间五米长。"],["hall","/hɔːl/","n.","大厅","We sing in the hall.","我们在大厅唱歌。"],["sleep","/sliːp/","v.","睡觉","I sleep eight hours.","我睡八小时。"],["played","/pleɪd/","v.","（play 的过去式）玩","We played football yesterday.","我们昨天踢足球。"],["washed","/wɑːʃt/","v.","（wash 的过去式）洗","I washed my clothes.","我洗了衣服。"],["watched","/wɒtʃt/","v.","（watch 的过去式）看","I watched TV last night.","我昨晚看了电视。"],["had","/hæd/","v.","（have 的过去式）有；吃","We had a good dinner.","我们吃了一顿好晚饭。"],["slept","/slept/","v.","（sleep 的过去式）睡","I slept late on Sunday.","周日我睡到很晚。"],["worse","/wɜːs/","adj.","更差的","He feels worse today.","他今天感觉更糟。"],["camp","/kæmp/","n.","营地","We stay at a camp in summer.","夏天我们住在营地。"],["bought","/bɔːt/","v.","（buy 的过去式）买","I bought a new book.","我买了一本新书。"],["rode","/rəʊd/","v.","（ride 的过去式）骑","He rode a bike to school.","他骑车去学校。"],["fell","/fel/","v.","（fall 的过去式）摔倒","She fell off the bike.","她从车上摔下来。"],["mule","/mjuːl/","n.","骡子","The mule carries bags.","骡子驮着袋子。"],["beach","/biːtʃ/","n.","海滩","We play on the beach.","我们在海滩上玩。"],["before","/bɪˈfɔː/","prep.","在……之前","Wash your hands before dinner.","饭前洗手。"],["cycling","/ˈsaɪklɪŋ/","n.","骑自行车运动","Cycling is good exercise.","骑车是很好的运动。"],["could","/kʊd/","v.","（can 的过去式）能","I could swim at five.","我五岁就会游泳。"]];
 var KEY='danci_g6_v2';
 var GAP=[1,1,2,4,7,15,30];
 
 var WMAP={}, WIDX={};
 for(var i=0;i<WORDS.length;i++){var k=WORDS[i][0].toLowerCase();WMAP[k]=WORDS[i];WIDX[k]=i;}
+for(var iE=0;iE<EXTRA.length;iE++){var kE=EXTRA[iE][0].toLowerCase();if(!WMAP[kE]){WMAP[kE]=EXTRA[iE];WIDX[kE]=WORDS.length+iE;}}
 
 var DB=null, view='home', S=null, Q=null, DT=null;
 
@@ -160,7 +172,7 @@ function parseD(s){var p=s.split('-');return new Date(+p[0],(+p[1])-1,+p[2]);}
 function addDays(s,n){var d=parseD(s);d.setDate(d.getDate()+n);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
 function dateCN(s){var d=parseD(s);var w=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];return (d.getMonth()+1)+'月'+d.getDate()+'日 '+w[d.getDay()];}
 
-function defaultDB(){return {v:2,daily:20,speak:true,phon:true,ptr:0,words:{},plans:{},logs:{},created:todayStr()};}
+function defaultDB(){return {v:2,daily:20,speak:true,phon:true,ptr:0,words:{},plans:{},logs:{},created:todayStr(),unit:null};}
 function loadDB(){
   try{
     var raw=localStorage.getItem(KEY);
@@ -361,14 +373,15 @@ function render(){
   else if(view==='wrong')m.innerHTML=wrongHTML();
   else if(view==='stat')m.innerHTML=statHTML();
   else if(view==='set')m.innerHTML=setHTML();
+  else if(view==='book')m.innerHTML=bookHTML();
 }
 function scrollFix(){window.scrollTo(0,0);}
 function go(v){view=v;render();scrollFix();}
 function renderNav(){
-  var items=[['home','🏠','首页'],['study','📖','学习'],['quiz','✏️','测试'],['wrong','📕','错词'],['stat','📊','统计'],['set','⚙️','设置']];
+  var items=[['home','🏠','首页'],['book','📚','教材'],['study','📖','学习'],['quiz','✏️','测试'],['wrong','📕','错词'],['stat','📊','统计'],['set','⚙️','设置']];
   var h='';
   for(var i=0;i<items.length;i++){
-    var on=((view===items[i][0])||(view==='dict'&&items[i][0]==='quiz'))?' on':'';
+    var on=((view===items[i][0])||(view==='dict'&&items[i][0]==='quiz')||(view==='study'&&S&&S.unitRef&&items[i][0]==='book'))?' on':'';
     h+='<a class="'+on.trim()+'" href="javascript:void(0)" onclick="go(\''+items[i][0]+'\')"><span class="ic">'+items[i][1]+'</span>'+items[i][2]+'</a>';
   }
   document.getElementById('nav').innerHTML=h;
@@ -400,6 +413,22 @@ function homeHTML(){
   h+='<div class="mini'+(revDone>=revTotal&&revTotal>0?' done':'')+'"><b>'+(revTotal?(revDone+'/'+revTotal):'—')+'</b><span>今日复习</span></div>';
   h+='<div class="mini'+(plan.quizDone?' done':'')+'"><b>'+(plan.quizDone?'✓':((plan.totalN||0)+' 题'))+'</b><span>今日测试</span></div>';
   h+='</div>';
+  var cu=curUnit();
+  if(cu){
+    var cs=unitStat(cu.u);
+    h+='<div class="card tight">';
+    h+='<div class="tagrow"><span class="tag unit">教材同步</span><span class="topic">'+cu.b.name+' · '+cu.label+'</span></div>';
+    h+='<div style="font-size:13px;color:#6b7794">本单元 '+cs.n+' 词 · 已学 '+cs.learn+' / 掌握 '+cs.mast+'</div>';
+    h+='<div class="bar"><i style="width:'+Math.round(cs.learn/(cs.n||1)*100)+'%"></i></div>';
+    h+='<div class="ubtn"><button class="btn sm" onclick="startUnitStudy(\''+cu.b.id+'\','+cu.ui+')">▶ 学这一单元</button>';
+    h+='<button class="btn ghost sm" onclick="startUnitDictate(\''+cu.b.id+'\','+cu.ui+',\'word\')">🎧 听写</button>';
+    h+='<button class="btn ghost sm" onclick="startUnitQuiz(\''+cu.b.id+'\','+cu.ui+')">✏️ 测</button></div>';
+    h+='</div>';
+  }else{
+    h+='<div class="card tight"><div class="tagrow"><span class="tag unit">教材同步</span><span class="topic">还没选当前单元</span></div>';
+    h+='<div class="hint" style="text-align:left">按课本单元背、跟着老师进度学。先去「教材」页选你的版本和正在上的那一单元。</div>';
+    h+='<div class="actions"><button class="btn ghost sm" onclick="go(\'book\')">📚 去选教材单元</button></div></div>';
+  }
   var packIdx=plan.news.length?(Math.floor(WIDX[plan.news[0]]/20)):(Math.floor(DB.ptr/20));
   h+='<div class="card">';
   h+='<div class="tagrow"><span class="tag">今日任务</span><span class="topic">词包 '+(packIdx+1)+'：'+(TOPICS[packIdx]||'')+'</span></div>';
@@ -473,12 +502,14 @@ function studyHTML(){
   if(!st||S.idx>=st.keys.length)return finishStudyView();
   var key=curKey();var w=WMAP[key];
   if(!w)return finishStudyView();
-  var tagTxt=st.type==='new'?'新词':'复习';
-  var tagCls=st.type==='new'?'tag':'tag rev';
+  var isUnit=(st.type==='unit');
+  var tagTxt=isUnit?'单元':(st.type==='new'?'新词':'复习');
+  var tagCls=isUnit?'tag unit':(st.type==='new'?'tag':'tag rev');
   var packIdx=Math.floor(WIDX[key]/20);
+  var subTxt=isUnit?(S.topic||''):(TOPICS[packIdx]||'');
   var h='';
   h+='<div class="card">';
-  h+='<div class="tagrow"><span class="'+tagCls+'">'+tagTxt+' '+(S.idx+1)+'/'+st.keys.length+'</span><span class="topic">'+(TOPICS[packIdx]||'')+'</span></div>';
+  h+='<div class="tagrow"><span class="'+tagCls+'">'+tagTxt+' '+(S.idx+1)+'/'+st.keys.length+'</span><span class="topic">'+subTxt+'</span></div>';
   h+='<div class="wordline"><span class="word">'+w[0]+'</span><button class="spk" onclick="speakCurrent()">🔊</button></div>';
   if(DB.phon)h+='<div class="phon">'+w[1]+'</div>';
   if(S.flipped){
@@ -515,7 +546,7 @@ function answer(ok){
   var plan=ensurePlan();
   var st=S.stages[S.stage];
   if(st.type==='new'){plan.posNew++;if(plan.posNew>=plan.news.length){plan.newDone=true;markLog('newDone');}}
-  else {plan.posRev++;if(plan.posRev>=plan.rev.length){plan.revDone=true;markLog('revDone');}}
+  else if(st.type==='rev'){plan.posRev++;if(plan.posRev>=plan.rev.length){plan.revDone=true;markLog('revDone');}}
   save();
   S.idx++;S.flipped=false;
   if(S.idx>=st.keys.length){
@@ -532,11 +563,17 @@ function markLog(field){
   save();
 }
 function finishStudyView(){
+  var ur=S&&S.unitRef;
   var h='<div class="card"><div class="bigresult"><div class="num">🎉</div>';
-  h+='<div style="font-size:18px;font-weight:700;color:#2f9a68">今天的学习任务完成啦</div>';
+  h+='<div style="font-size:18px;font-weight:700;color:#2f9a68">'+(ur?(ur.label+' 学完了'):'今天的学习任务完成啦')+'</div>';
   h+='<div style="color:#7d89a6;font-size:14px;margin-top:6px">记住 '+S.know+' 个，需要再练 '+S.no+' 个</div></div>';
-  h+='<div class="actions"><button class="btn wide" onclick="startQuiz()">✏️ 马上测试一下</button></div>';
-  h+='<div class="actions"><button class="btn ghost sm" onclick="startWrongDrill()">练错词</button><button class="btn ghost sm" onclick="go(\'home\')">回首页</button></div>';
+  if(ur){
+    h+='<div class="actions"><button class="btn wide" onclick="startUnitQuiz(\''+ur.id+'\','+ur.u+')">✏️ 测这一单元</button></div>';
+    h+='<div class="actions"><button class="btn ghost sm" onclick="startUnitDictate(\''+ur.id+'\','+ur.u+',\'word\')">🎧 听写这一单元</button><button class="btn ghost sm" onclick="go(\'book\')">回教材页</button></div>';
+  }else{
+    h+='<div class="actions"><button class="btn wide" onclick="startQuiz()">✏️ 马上测试一下</button></div>';
+    h+='<div class="actions"><button class="btn ghost sm" onclick="startWrongDrill()">练错词</button><button class="btn ghost sm" onclick="go(\'home\')">回首页</button></div>';
+  }
   h+='</div>';
   return h;
 }
@@ -721,8 +758,9 @@ function quizResultHTML(){
   }else{
     h+='<div class="fb ok" style="margin-top:14px">全对！很棒，继续保持 💪</div>';
   }
-  h+='<div class="actions"><button class="btn wide" onclick="'+(Q.wrongKeys.length?'startWrongDrill()':'startQuiz()')+'">'+ (Q.wrongKeys.length?'立即重练错题':'再测一次')+'</button></div>';
-  h+='<div class="actions"><button class="btn ghost sm" onclick="go(\'home\')">回首页</button><button class="btn ghost sm" onclick="go(\'stat\')">看统计</button></div>';
+  var again=Q.src?('startUnitQuiz(\''+Q.src.id+'\','+Q.src.u+')'):'startQuiz()';
+  h+='<div class="actions"><button class="btn wide" onclick="'+(Q.wrongKeys.length?'startWrongDrill()':again)+'">'+ (Q.wrongKeys.length?'立即重练错题':'再测一次')+'</button></div>';
+  h+='<div class="actions"><button class="btn ghost sm" onclick="go(\''+(Q.src?'book':'home')+'\')">'+(Q.src?'回教材页':'回首页')+'</button><button class="btn ghost sm" onclick="go(\'stat\')">看统计</button></div>';
   h+='</div>';
   return h;
 }
@@ -753,15 +791,15 @@ function dictPool(){
   if(!uniq.length)uniq=all.filter(function(k){return !!WMAP[k];});
   return uniq;
 }
-function startDictate(mode){
-  var pool=dictPool();
+function startDictate(mode,poolKeys,src){
+  var pool=(poolKeys&&poolKeys.length)?poolKeys.filter(function(k){return !!WMAP[k];}):dictPool();
   if(!pool.length){toast('先学几个单词再来听写');return;}
   var list=pool.slice();
   shuffle(list);
   if(mode==='sentence'){ list=list.filter(function(k){return WMAP[k]&&WMAP[k][4];}); }
   if(!list.length){toast('这组词还没有例句，先做单词听写吧');return;}
   var n=Math.min(mode==='sentence'?8:10,list.length);
-  DT={mode:mode,list:list.slice(0,n),i:0,right:0,wrongKeys:[],answered:false,typing:''};
+  DT={mode:mode,list:list.slice(0,n),i:0,right:0,wrongKeys:[],answered:false,typing:'',src:src||null,pool:pool.slice()};
   view='dict';render();
   setTimeout(function(){dictPlay();},120);
 }
@@ -832,10 +870,14 @@ function dictResultHTML(){
   }else{
     h+='<div class="fb ok" style="margin-top:14px">全对！听力和拼写都过关 💪</div>';
   }
-  h+='<div class="actions"><button class="btn wide" onclick="startDictate(\''+DT.mode+'\')">再听写一轮</button></div>';
-  h+='<div class="actions"><button class="btn ghost sm" onclick="startDictate(\''+(DT.mode==='sentence'?'word':'sentence')+'\')">换成'+(DT.mode==='sentence'?'单词听写':'句子听写')+'</button><button class="btn ghost sm" onclick="go(\'home\')">回首页</button></div>';
+  h+='<div class="actions"><button class="btn wide" onclick="dictRun(\''+DT.mode+'\')">再听写一轮</button></div>';
+  h+='<div class="actions"><button class="btn ghost sm" onclick="dictRun(\''+(DT.mode==='sentence'?'word':'sentence')+'\')">换成'+(DT.mode==='sentence'?'单词听写':'句子听写')+'</button><button class="btn ghost sm" onclick="go(\''+(DT.src?'book':'home')+'\')">'+(DT.src?'回教材页':'回首页')+'</button></div>';
   h+='</div>';
   return h;
+}
+function dictRun(mode){
+  var pool=DT&&DT.pool?DT.pool.slice():null, src=DT?DT.src:null;
+  startDictate(mode,pool,src);
 }
 
 /* ---------- 错词本 ---------- */
@@ -871,6 +913,116 @@ function startWrongDrill(){
   var qs=buildQuiz(keys,'wrong');
   Q={list:qs,i:0,right:0,wrongKeys:[],answered:false,chosen:-1,typing:'',mode:'wrong'};
   view='quiz';render();
+}
+
+/* ---------- 教材同步 ---------- */
+var BV=null, BB=null;
+function bookById(id){for(var i=0;i<UNITS.books.length;i++){if(UNITS.books[i].id===id)return UNITS.books[i];}return null;}
+function unitKeys(u){
+  var a=[];
+  for(var i=0;i<u.words.length;i++){var k=u.words[i].toLowerCase();if(WMAP[k]&&a.indexOf(k)<0)a.push(k);}
+  return a;
+}
+function unitStat(u){
+  var ks=unitKeys(u),learn=0,mast=0;
+  for(var i=0;i<ks.length;i++){var r=DB.words[ks[i]];if(r){learn++;if(r.s>=4)mast++;}}
+  return {n:ks.length,learn:learn,mast:mast};
+}
+function curUnit(){
+  if(!DB.unit)return null;
+  var b=bookById(DB.unit.id);if(!b)return null;
+  var u=b.units[DB.unit.u];if(!u)return null;
+  return {b:b,u:u,ui:DB.unit.u,label:u.u+' '+u.t};
+}
+function setCurB(id,ui){DB.unit={id:id,u:ui};save();render();toast('已同步到 '+(bookById(id).units[ui].u));}
+function setBV(v){BV=v;var f=null;for(var i=0;i<UNITS.books.length;i++){if(UNITS.books[i].ver===v){f=UNITS.books[i];break;}}if(f)BB=f.id;render();}
+function bookHTML(){
+  if(!BV){var c=curUnit();if(c){BV=c.b.ver;BB=c.b.id;}else{BV=UNITS.books[0].ver;BB=UNITS.books[0].id;}}
+  var b=bookById(BB)||UNITS.books[0];
+  var cur=DB.unit?DB.unit:null;
+  var h='';
+  h+='<div class="card tight">';
+  h+='<div class="tagrow"><span class="tag">教材同步</span><span class="topic">跟着课本单元走，学完就能听写</span></div>';
+  h+='<div class="seg">';
+  for(var v=0;v<UNITS.vers.length;v++){
+    h+='<button class="'+(BV===UNITS.vers[v].k?'on':'')+'" onclick="setBV(\''+UNITS.vers[v].k+'\')">'+UNITS.vers[v].n+'</button>';
+  }
+  h+='</div>';
+  h+='<div class="seg" style="margin-top:8px">';
+  for(var i2=0;i2<UNITS.books.length;i2++){
+    var bk=UNITS.books[i2];
+    if(bk.ver!==BV)continue;
+    h+='<button class="'+(BB===bk.id?'on':'')+'" onclick="BB=\''+bk.id+'\';render()">'+bk.name+'</button>';
+  }
+  h+='</div>';
+  h+='<div class="hint" style="text-align:left;margin-top:10px">'+b.verName+' · 共 '+b.units.length+' 个单元。选到老师正在上的那一单元，点「设为进度」，首页就会优先推它。</div>';
+  h+='</div>';
+
+  if(cur&&cur.id===b.id){
+    var cu=curUnit();
+    if(cu){
+      var cs=unitStat(cu.u);
+      h+='<div class="card tight" style="border-left:5px solid #7a4fd0">';
+      h+='<div class="tagrow"><span class="tag unit">当前进度</span><span class="topic">'+cu.b.name+' · '+cu.label+'</span></div>';
+      h+='<div style="font-size:13px;color:#6b7794">本单元 '+cs.n+' 词 · 已学 '+cs.learn+' · 掌握 '+cs.mast+'</div>';
+      h+='<div class="bar"><i style="width:'+Math.round(cs.learn/(cs.n||1)*100)+'%"></i></div>';
+      h+='<div class="ubtn"><button class="btn sm" onclick="startUnitStudy(\''+cu.b.id+'\','+cu.ui+')">▶ 学这一单元</button>';
+      h+='<button class="btn ghost sm" onclick="startUnitDictate(\''+cu.b.id+'\','+cu.ui+',\'word\')">🎧 听写</button>';
+      h+='<button class="btn ghost sm" onclick="startUnitQuiz(\''+cu.b.id+'\','+cu.ui+')">✏️ 测试</button></div>';
+      h+='</div>';
+    }
+  }
+
+  for(var ui=0;ui<b.units.length;ui++){
+    var u=b.units[ui],st=unitStat(u);
+    var isCur=(cur&&cur.id===b.id&&cur.u===ui);
+    var pct=Math.round(st.learn/(st.n||1)*100);
+    h+='<div class="ucard'+(isCur?' cur':'')+'">';
+    h+='<div class="uhead"><b>'+u.u+'</b> <span class="ut">'+u.t+'</span>'+(isCur?' <span class="tag unit" style="font-size:11px">当前</span>':'')+'</div>';
+    h+='<div class="ucn">'+u.cn+' · '+st.n+' 词 · 已学 '+st.learn+' / 掌握 '+st.mast+'</div>';
+    h+='<div class="bar"><i style="width:'+pct+'%"></i></div>';
+    h+='<div class="ubtn">';
+    h+='<button class="btn sm" onclick="startUnitStudy(\''+b.id+'\','+ui+')">▶ 学习</button>';
+    h+='<button class="btn ghost sm" onclick="startUnitDictate(\''+b.id+'\','+ui+',\'word\')">🎧 单词听写</button>';
+    h+='<button class="btn ghost sm" onclick="startUnitQuiz(\''+b.id+'\','+ui+')">✏️ 测试</button>';
+    h+='</div>';
+    h+='<div class="ubtn" style="margin-top:6px">';
+    h+='<button class="btn ghost sm" onclick="startUnitDictate(\''+b.id+'\','+ui+',\'sentence\')">🎧 句子听写</button>';
+    h+='<button class="btn ghost sm" onclick="setCurB(\''+b.id+'\','+ui+')">'+(isCur?'✓ 已是进度':'设为进度')+'</button>';
+    h+='</div>';
+    h+='</div>';
+  }
+  h+='<div class="card tight"><div class="hint" style="text-align:left">词表按课本口径整理；如果老师发的单元词表比这里多几个词，先用「首页」的词包模式补，或者告诉我，我按你的课本再补。</div></div>';
+  return h;
+}
+function startUnitStudy(id,ui){
+  var b=bookById(id);if(!b)return;
+  var u=b.units[ui];if(!u)return;
+  var keys=unitKeys(u);
+  if(!keys.length){toast('这一单元还没有词表');return;}
+  DB.unit={id:id,u:ui};save();
+  S={stages:[{type:'unit',keys:keys}],stage:0,idx:0,flipped:false,know:0,no:0,topic:b.name+' '+u.u,t:'',unitRef:{id:id,u:ui,label:u.u+' '+u.t}};
+  view='study';render();
+  if(DB.speak)setTimeout(function(){speakText(keys[0],0.86);},350);
+}
+function startUnitQuiz(id,ui){
+  var b=bookById(id);if(!b)return;
+  var u=b.units[ui];if(!u)return;
+  var keys=unitKeys(u);
+  if(keys.length<2){toast('这一单元词太少，先去学一遍');return;}
+  var qs=buildQuiz(keys,'mix');
+  if(!qs.length){toast('这一单元还没有词表');return;}
+  DB.unit={id:id,u:ui};save();
+  Q={list:qs,i:0,right:0,wrongKeys:[],answered:false,chosen:-1,typing:'',mode:'unit',src:{id:id,u:ui}};
+  view='quiz';render();
+}
+function startUnitDictate(id,ui,mode){
+  var b=bookById(id);if(!b)return;
+  var u=b.units[ui];if(!u)return;
+  var keys=unitKeys(u);
+  if(!keys.length){toast('这一单元还没有词表');return;}
+  DB.unit={id:id,u:ui};save();
+  startDictate(mode,keys,{id:id,u:ui});
 }
 
 /* ---------- 统计 ---------- */
@@ -925,6 +1077,16 @@ function setHTML(){
   h+='</div></div>';
   h+='<div class="srow"><div class="lb">自动发音<span class="ds">浏览器没有内置语音时会自动改用在线发音（需要联网）</span></div><button class="switch '+(DB.speak?'on':'')+'" onclick="toggleOpt(\'speak\')"><i></i></button></div>';
   h+='<div class="srow"><div class="lb">显示音标<span class="ds">关闭后卡片更简洁</span></div><button class="switch '+(DB.phon?'on':'')+'" onclick="toggleOpt(\'phon\')"><i></i></button></div>';
+  h+='</div>';
+
+  h+='<div class="card"><div class="tagrow"><span class="tag unit">教材同步</span><span class="topic">按课本单元学 / 听写</span></div>';
+  var cuS=curUnit();
+  if(cuS){
+    h+='<div style="font-size:14px;color:#5a6785">当前进度：<b>'+cuS.b.name+'</b> · '+cuS.label+'</div>';
+  }else{
+    h+='<div style="font-size:14px;color:#8f9ab3">还没有选择当前单元</div>';
+  }
+  h+='<div class="actions"><button class="btn ghost sm" onclick="go(\'book\')">📚 选教材 / 单元</button></div>';
   h+='</div>';
 
   h+='<div class="card"><div class="tagrow"><span class="tag">数据备份</span><span class="topic">换电脑/重装浏览器前先导出</span></div>';
