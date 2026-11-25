@@ -363,7 +363,7 @@ function applyResult(key,ok){
 /* ---------- 渲染入口 ---------- */
 function render(){
   var plan=getPlan();
-  document.getElementById('topinfo').innerHTML=dateCN(todayStr())+'<br>已收录 '+WORDS.length+' 词 · 已学 '+Object.keys(DB.words).length;
+  document.getElementById('topinfo').innerHTML=dateCN(todayStr())+'<br>已收录 '+(WORDS.length+EXTRA.length)+' 词 · 已学 '+Object.keys(DB.words).length;
   renderNav();
   var m=document.getElementById('main');
   if(view==='home')m.innerHTML=homeHTML();
