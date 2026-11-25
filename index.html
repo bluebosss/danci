@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%235b7cfa'/%3E%3Ctext x='50' y='72' font-size='58' font-family='Arial,Helvetica,sans-serif' font-weight='bold' text-anchor='middle' fill='%23ffffff'%3EA%3C/text%3E%3C/svg%3E">
 <title>每天20词 · 六年级英语单词训练营</title>
 <style>
@@ -189,38 +190,66 @@ function ensureAudio(){
   try{ _au=new Audio(); _au.preload='auto'; }catch(e){ _au=null; }
   return _au;
 }
-function playAudio(url,onFail){
+function playAudio(url,onFail,onEnd){
   var a=ensureAudio();
   if(!a){ if(onFail)onFail(); return; }
+  var settled=false;
+  function fail(){ if(settled)return; settled=true; if(onFail)onFail(); }
+  function end(){ if(settled)return; settled=true; if(onEnd)onEnd(); }
   try{
-    a.onerror=null;
+    a.onerror=null; a.onended=null;
     a.src=url;
     try{ a.load(); }catch(e){}
-    a.onerror=function(){ if(onFail)onFail(); };
+    a.onerror=fail;
+    a.onended=end;
     var p=a.play();
-    if(p&&p.catch){ p.catch(function(){ if(onFail)onFail(); }); }
-  }catch(e){ if(onFail)onFail(); }
+    if(p&&p.catch){ p.catch(function(){ fail(); }); }
+  }catch(e){ fail(); }
 }
 /* 单词用有道（词典音质好），句子用百度（有道不支持长句，会返回 500） */
 function ttsList(t){
   var enc=encodeURIComponent(t);
   var yd='https://dict.youdao.com/dictvoice?audio='+enc+'&type=2';
   var bd='https://fanyi.baidu.com/gettts?lan=en&text='+enc+'&spd=3&source=web';
-  var isSentence=(/\s/.test(t)||t.length>15);
-  return isSentence?[bd,yd]:[yd,bd];
+  return isSent(t)?[bd,yd]:[yd,bd];
+}
+function isSent(t){ return (/\s/.test(t)||t.length>15); }
+var _BW=null;
+/* 整句接口都拿不到音频时，退化成逐词朗读（词典单词接口在手机上最稳） */
+function speakByWords(text){
+  var ws=String(text).replace(/[^A-Za-z'\- ]+/g,' ').split(/\s+/).filter(function(x){return x;});
+  if(!ws.length||ws.length>14)return false;
+  var seq={}; _BW=seq;
+  toast('整句朗读走不通，改为逐词朗读');
+  var i=0;
+  function step(){
+    if(_BW!==seq)return;
+    if(i>=ws.length){ _BW=null; return; }
+    var w=ws[i++];
+    var yd='https://dict.youdao.com/dictvoice?audio='+encodeURIComponent(w)+'&type=2';
+    var bd='https://fanyi.baidu.com/gettts?lan=en&text='+encodeURIComponent(w)+'&spd=3&source=web';
+    playAudio(yd,function(){ playAudio(bd,function(){ setTimeout(step,60); },function(){ setTimeout(step,140); }); },function(){ setTimeout(step,140); });
+  }
+  step();
+  return true;
 }
 function onlineSpeak(txt){
   var t=(txt||'').replace(/[.。！？!?]+$/,'').trim();
   if(!t)return;
+  _BW=null;
   var list=ttsList(t),i=0;
   function next(){
-    if(i>=list.length){ toast('发音加载失败，请检查网络'); return; }
+    if(i>=list.length){
+      if(isSent(t)&&speakByWords(t))return;
+      toast('发音加载失败，请检查网络'); return;
+    }
     playAudio(list[i++],next);
   }
   next();
 }
 function speakText(txt,rate){
   if(!DB.speak)return;
+  _BW=null;
   if(voiceOK){
     try{
       var vs=window.speechSynthesis.getVoices();
